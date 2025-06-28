@@ -18,7 +18,7 @@ const calculateDiffValuesVsYesterday = (
     commonNames.includes(c.character_name)
   );
 
-  const diffArray: CharacterDB[] = filteredToday.map((c) => {
+  const diffArray = filteredToday.map((c) => {
     const y = filteredYesterday.find(
       (char) => char.character_name === c.character_name
     );
@@ -36,5 +36,5 @@ const calculateDiffValuesVsYesterday = (
       total_kills: c.total_kills - (y?.total_kills ?? 0),
     };
   });
-  return {};
+  return diffArray;
 };
