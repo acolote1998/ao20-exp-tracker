@@ -5,7 +5,7 @@ const Index = () => {
     <div>
       <button
         onClick={async () => {
-          console.log(await testGetData());
+          console.log(await getRankingFromAO20());
         }}
       >
         Click here to test

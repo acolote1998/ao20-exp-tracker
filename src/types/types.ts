@@ -1,0 +1,23 @@
+export type CharacterFromAoApi = {
+  character_name: string;
+  ciudadanos_matados: number;
+  class_id: number;
+  class_name: string;
+  criminales_matados: number;
+  deaths: number;
+  elo: number;
+  exp: number;
+  exp_next_level: number;
+  exp_percentage: string; // looks like a percentage as a string "94.41"
+  faction_score: number;
+  gender_name: string;
+  genre_id: number;
+  head_id: number;
+  is_locked_in_mao: number; // 0 or 1, could also be boolean if you prefer
+  killed_npcs: number;
+  level: number;
+  puntos_pesca: number;
+  race_id: number;
+  race_name: string;
+  total_kills: number;
+};
