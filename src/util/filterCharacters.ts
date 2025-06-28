@@ -1,4 +1,4 @@
-import characterNames from "../characterList";
+import characterNames from "./characterList";
 import type { CharacterFromAoApi } from "../types/types";
 
 export const filterAO20ApiResults = (
