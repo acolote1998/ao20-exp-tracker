@@ -19,12 +19,12 @@ const CharShowingDiffs = ({
       <p>{class_name}</p>
       <p>Muertes 24hs: {deaths}</p>
       <p>{total_kills} kills en 24hs</p>
-      <p>{total_kills / deaths} KD en 24hs</p>
+      <p>{(total_kills / deaths).toFixed(2)} KD en 24hs</p>
       {levelDiff === 0 && <p>Exp 24hs: {exp}</p>}
       <p>Level: {level}</p>
       {levelDiff > 0}
       <p>Subio de level?: Si</p>
-      <p>{exp_percentage}% 24hs</p>
+      <p>{exp_percentage}% exp 24hs</p>
       <p>{killed_npcs} NPCs en 24hs</p>
     </div>
   );
