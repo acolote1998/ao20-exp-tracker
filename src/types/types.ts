@@ -35,3 +35,17 @@ export type CharacterDB = {
   total_kills: number;
   updated_at: string; // assuming `todayDate` is an ISO string (e.g. from `new Date().toISOString()`)
 };
+
+export type CharacterDiff = {
+  character_name: string;
+  class_name: string;
+  deaths: number;
+  exp: number;
+  exp_next_level: number;
+  exp_percentage: number;
+  killed_npcs: number;
+  level: number;
+  levelDiff: number; // difference in level
+  race_name: string;
+  total_kills: number;
+};
