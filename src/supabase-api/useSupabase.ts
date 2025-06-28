@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import type { CharacterFromAoApi } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -35,21 +36,22 @@ export const getCharDataFromDbFromToday = async () => {
   return data;
 };
 
-export const testInsertData = async () => {
-  const { data, error } = await supabase.from("characters").insert([
-    {
-      character_name: "Purling",
-      class_name: "CLASIN",
-      deaths: 5,
-      exp: 111,
-      exp_next_level: 1111111,
-      exp_percentage: 15,
-      killed_npcs: 1,
-      level: 18,
-      race_name: "racinto",
-      total_kills: 1,
-    },
-  ]);
+export const insertDataToDb = async (
+  charsToInsert: Array<CharacterFromAoApi>
+) => {
+  const charsForDb = charsToInsert.map((char) => ({
+    character_name: char.character_name,
+    class_name: char.class_name,
+    deaths: char.deaths,
+    exp: char.exp,
+    exp_next_level: char.exp_next_level,
+    exp_percentage: char.exp_percentage,
+    killed_npcs: char.killed_npcs,
+    level: char.level,
+    race_name: char.race_name,
+    total_kills: char.total_kills,
+  }));
+  const { data, error } = await supabase.from("characters").insert(charsForDb);
   if (error) {
     console.log("Error insertando filas");
     return null;
