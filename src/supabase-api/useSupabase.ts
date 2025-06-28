@@ -1,40 +1,42 @@
 import { createClient } from "@supabase/supabase-js";
-import type { CharacterFromAoApi } from "../types/types";
+import type { CharacterFromAoApi, CharacterDB } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export const getCharDataFromDbFromYesterday = async () => {
-  const today = new Date();
-  const yesterday = new Date(today);
-  yesterday.setDate(today.getDate() - 1);
-  const yesterdayDate = yesterday.toISOString().split("T")[0];
+export const getCharDataFromDbFromYesterday =
+  async (): Promise<Array<CharacterDB> | null> => {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    const yesterdayDate = yesterday.toISOString().split("T")[0];
 
-  const { data, error } = await supabase
-    .from("characters")
-    .select("*")
-    .eq("updated_at", yesterdayDate);
-  if (error) {
-    console.error("Error fetching characters:", error);
-    return null;
-  }
-  return data;
-};
+    const { data, error } = await supabase
+      .from("characters")
+      .select("*")
+      .eq("updated_at", yesterdayDate);
+    if (error) {
+      console.error("Error fetching characters:", error);
+      return null;
+    }
+    return data;
+  };
 
-export const getCharDataFromDbFromToday = async () => {
-  const today = new Date();
-  const todayDate = today.toISOString().split("T")[0];
+export const getCharDataFromDbFromToday =
+  async (): Promise<Array<CharacterDB> | null> => {
+    const today = new Date();
+    const todayDate = today.toISOString().split("T")[0];
 
-  const { data, error } = await supabase
-    .from("characters")
-    .select("*")
-    .eq("updated_at", todayDate);
-  if (error) {
-    console.error("Error fetching characters:", error);
-    return null;
-  }
-  return data;
-};
+    const { data, error } = await supabase
+      .from("characters")
+      .select("*")
+      .eq("updated_at", todayDate);
+    if (error) {
+      console.error("Error fetching characters:", error);
+      return null;
+    }
+    return data;
+  };
 
 export const insertDataToDb = async (
   charsToInsert: Array<CharacterFromAoApi>
