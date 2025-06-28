@@ -38,6 +38,21 @@ export const getCharDataFromDbFromToday =
     return data;
   };
 
+export const deleteCharDataFromDbFromToday = async () => {
+  const today = new Date();
+  const todayDate = today.toISOString().split("T")[0];
+
+  const { error } = await supabase
+    .from("characters")
+    .delete()
+    .eq("updated_at", todayDate);
+  if (error) {
+    console.error("Error deleting characters:", error);
+    return null;
+  }
+  console.log("Deleted");
+};
+
 export const insertDataToDb = async (
   charsToInsert: Array<CharacterFromAoApi>
 ) => {
@@ -56,10 +71,10 @@ export const insertDataToDb = async (
     total_kills: char.total_kills,
     updated_at: todayDate,
   }));
-  const { data, error } = await supabase.from("characters").insert(charsForDb);
+  const { count, error } = await supabase.from("characters").insert(charsForDb);
   if (error) {
     console.log("Error insertando filas");
     return null;
   }
-  console.log("Inserted row:", data);
+  console.log("Inserted row:", count);
 };

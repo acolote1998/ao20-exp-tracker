@@ -2,6 +2,7 @@ import {
   getCharDataFromDbFromToday,
   getCharDataFromDbFromYesterday,
   insertDataToDb,
+  deleteCharDataFromDbFromToday,
 } from "../supabase-api/useSupabase";
 import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20";
 import { useState } from "react";
@@ -42,6 +43,14 @@ const Index = () => {
           }}
         >
           Filter Char to char name list
+        </button>
+        <br></br>
+        <button
+          onClick={async () => {
+            console.log(await deleteCharDataFromDbFromToday());
+          }}
+        >
+          deleteCharDataFromDbFromToday
         </button>
         <br></br>
         <button
