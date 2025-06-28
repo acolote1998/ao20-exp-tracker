@@ -21,3 +21,17 @@ export type CharacterFromAoApi = {
   race_name: string;
   total_kills: number;
 };
+
+export type CharacterDB = {
+  character_name: string;
+  class_name: string;
+  deaths: number;
+  exp: number;
+  exp_next_level: number;
+  exp_percentage: number; // adjust if needed
+  killed_npcs: number;
+  level: number;
+  race_name: string;
+  total_kills: number;
+  updated_at: string; // assuming `todayDate` is an ISO string (e.g. from `new Date().toISOString()`)
+};

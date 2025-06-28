@@ -13,7 +13,7 @@ export const getCharDataFromDbFromYesterday = async () => {
   const { data, error } = await supabase
     .from("characters")
     .select("*")
-    .eq("created_at", yesterdayDate);
+    .eq("updated_at", yesterdayDate);
   if (error) {
     console.error("Error fetching characters:", error);
     return null;
@@ -28,7 +28,7 @@ export const getCharDataFromDbFromToday = async () => {
   const { data, error } = await supabase
     .from("characters")
     .select("*")
-    .eq("created_at", todayDate);
+    .eq("updated_at", todayDate);
   if (error) {
     console.error("Error fetching characters:", error);
     return null;

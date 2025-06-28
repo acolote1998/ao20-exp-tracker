@@ -44,6 +44,14 @@ const Index = () => {
       >
         Get Chars From DB for today
       </button>
+      <br></br>
+      <button
+        onClick={async () => {
+          console.log(await getCharDataFromDbFromYesterday());
+        }}
+      >
+        Get Chars From DB for yesterday
+      </button>
     </div>
   );
 };
