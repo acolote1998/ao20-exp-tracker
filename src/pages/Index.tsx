@@ -1,10 +1,11 @@
+import { testGetData } from "../supabase-api/useSupabase";
 import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20";
 const Index = () => {
   return (
     <div>
       <button
         onClick={async () => {
-          console.log(await getRankingFromAO20());
+          console.log(await testGetData());
         }}
       >
         Click here to test
