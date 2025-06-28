@@ -39,6 +39,8 @@ export const getCharDataFromDbFromToday = async () => {
 export const insertDataToDb = async (
   charsToInsert: Array<CharacterFromAoApi>
 ) => {
+  const today = new Date();
+  const todayDate = today.toISOString().split("T")[0];
   const charsForDb = charsToInsert.map((char) => ({
     character_name: char.character_name,
     class_name: char.class_name,
@@ -50,6 +52,7 @@ export const insertDataToDb = async (
     level: char.level,
     race_name: char.race_name,
     total_kills: char.total_kills,
+    updated_at: todayDate,
   }));
   const { data, error } = await supabase.from("characters").insert(charsForDb);
   if (error) {
