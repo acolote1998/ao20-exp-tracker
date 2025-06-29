@@ -1,3 +1,9 @@
+import { useState, useEffect } from "react";
+import type {
+  CharacterFromAoApi,
+  CharacterDB,
+  CharacterDiff,
+} from "../types/types";
 import {
   getCharDataFromDbFromToday,
   getCharDataFromDbFromYesterday,
@@ -5,15 +11,10 @@ import {
   deleteCharDataFromDbFromToday,
 } from "../supabase-api/useSupabase";
 import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20";
-import { useState } from "react";
-import type {
-  CharacterFromAoApi,
-  CharacterDB,
-  CharacterDiff,
-} from "../types/types";
 import { filterAO20ApiResults } from "../util/filterCharacters";
 import { calculateDiffValuesVsYesterday } from "../util/calculateDiffValuesVsYesterday";
 import CharShowingDiffs from "../components/CharShowingDiffs";
+import { getFinalDiffs } from "../logic/getFinalDiffs";
 
 const Index = () => {
   const [charsFromRanking, setCharsFromRanking] = useState<
@@ -26,9 +27,25 @@ const Index = () => {
     CharacterDB[] | null
   >(null);
   const [charDiffs, setCharDiffs] = useState<CharacterDiff[] | null>(null);
+  useEffect(() => {
+    const fetchDiffs = async () => {
+      const diffs = await getFinalDiffs();
+      setCharDiffs(diffs);
+    };
+
+    fetchDiffs();
+  }, []);
+
   return (
     <>
-      <div>
+      <div className="text-white">
+        <button
+          onClick={() => {
+            console.log(charDiffs);
+          }}
+        >
+          Test me
+        </button>
         <button
           onClick={async () => {
             setCharsFromRanking(await getRankingFromAO20());

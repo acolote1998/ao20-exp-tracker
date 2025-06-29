@@ -50,7 +50,6 @@ export const deleteCharDataFromDbFromToday = async () => {
     console.error("Error deleting characters:", error);
     return null;
   }
-  console.log("Deleted");
 };
 
 export const insertDataToDb = async (
@@ -72,10 +71,9 @@ export const insertDataToDb = async (
     total_kills: char.total_kills,
     updated_at: todayDate,
   }));
-  const { count, error } = await supabase.from("characters").insert(charsForDb);
+  const { error } = await supabase.from("characters").insert(charsForDb);
   if (error) {
     console.log("Error insertando filas");
     return null;
   }
-  console.log("Inserted row:", count);
 };
