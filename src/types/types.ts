@@ -48,4 +48,8 @@ export type CharacterDiff = {
   levelDiff: number; // difference in level
   race_name: string;
   total_kills: number;
+  most_kills?: boolean;
+  best_kd?: boolean;
+  most_xp?: boolean;
+  most_npcs?: boolean;
 };
