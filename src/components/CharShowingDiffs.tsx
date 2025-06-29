@@ -2,6 +2,10 @@ import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
+import { BestKda } from "./icons/BestKda";
+import { MostKills } from "./icons/MostKills";
+import { MostNpcs } from "./icons/MostNpcs";
+import { MostExp } from "./icons/MostXp";
 const CharShowingDiffs = ({
   character_name,
   deaths,
@@ -79,10 +83,22 @@ const CharShowingDiffs = ({
             </div>
 
             <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
-              <p>{best_kd && "Mejor KDA"}</p>
-              <p>{most_kills && "Most Kills"}</p>
-              <p>{most_npcs && "Most NPCs"}</p>
-              <p>{most_xp && "Most XP"}</p>
+              <p>
+                <BestKda width={40} height={40} />
+                {best_kd && "Mejor KDA"}
+              </p>
+              <p>
+                <MostKills width={40} height={40} />
+                {most_kills && "Most Kills"}
+              </p>
+              <p>
+                <MostNpcs width={48} height={48} />
+                {most_npcs && "Most NPCs"}
+              </p>
+              <p>
+                <MostExp width={48} height={48} />
+                {most_xp && "Most XP"}
+              </p>
             </div>
           </>
         )}
