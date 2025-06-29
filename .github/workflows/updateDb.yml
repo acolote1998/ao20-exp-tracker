@@ -19,8 +19,8 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Transpilation TS
-        run: tsc
+      - name: Build scripts
+        run: npm run build:scripts
 
       - name: Running Script
-        run: node src/logic/executeUpdateData.js
+        run: node dist-scripts/logic/executeUpdateData.js
