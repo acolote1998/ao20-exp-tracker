@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Transpilation TS
-        run: tsc src/logic/executeUpdateData.ts
+        run: tsc
 
       - name: Running Script
         run: node src/logic/executeUpdateData.js

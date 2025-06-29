@@ -4,6 +4,10 @@ const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+if (!supabaseKey) {
+  throw new Error("Missing env var VITE_SUPABASE_KEY");
+}
+
 export const getCharDataFromDbFromBeforeYesterday =
   async (): Promise<Array<CharacterDB> | null> => {
     const today = new Date();
