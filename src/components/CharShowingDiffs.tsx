@@ -84,27 +84,27 @@ const CharShowingDiffs = ({
 
             <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
               {best_kd && (
-                <div className="flex flex-col items-center justify-center align-middle">
+                <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <BestKda width={40} height={40} />
-                  <p className="font-normal text-sm">Mejor KD</p>
+                  <p className="font-normal text-sm mt-2">Mejor KD</p>
                 </div>
               )}
               {most_kills && (
-                <div className="flex flex-col items-center justify-center align-middle">
+                <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostKills width={40} height={40} />
-                  <p className="font-normal text-sm">Mas Kills</p>
+                  <p className="font-normal text-sm mt-2">Mas Kills</p>
                 </div>
               )}
               {most_npcs && (
-                <div className="flex flex-col items-center justify-center align-middle">
+                <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostNpcs width={48} height={48} />
-                  <p className="font-normal text-sm">Mas NPCs</p>
+                  <p className="font-normal text-sm mt-2">Mas NPCs</p>
                 </div>
               )}
               {most_xp && (
-                <div className="flex flex-col items-center justify-center align-middle">
+                <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostExp width={48} height={48} />
-                  <p className="font-normal text-sm">Most XP</p>
+                  <p className="font-normal text-sm mt-2">Most XP</p>
                 </div>
               )}
             </div>
