@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Checking working direcetory
-        run: pwd
+        run: ls
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
