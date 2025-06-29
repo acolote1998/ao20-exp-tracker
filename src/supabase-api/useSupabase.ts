@@ -1,12 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 import type { CharacterFromAoApi, CharacterDB } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
+const supabaseKey: string | undefined = import.meta.env.VITE_SUPABASE_KEY;
 if (!supabaseKey) {
   throw new Error("Missing env var VITE_SUPABASE_KEY");
 }
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const getCharDataFromDbFromBeforeYesterday =
   async (): Promise<Array<CharacterDB> | null> => {

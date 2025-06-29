@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const VITE_AO20_RANKING_ENDPOINT: string = import.meta.env
+const VITE_AO20_RANKING_ENDPOINT: string | undefined = import.meta.env
   .VITE_AO20_RANKING_ENDPOINT;
 
 if (!VITE_AO20_RANKING_ENDPOINT) {
