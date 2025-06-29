@@ -6,7 +6,7 @@ on:
     - cron: "0 3 * * *" # 3:00 AM UTC = 5:00 AM Sweden during summer
 
 jobs:
-  correr-script:
+  update-db-with-script:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
