@@ -4,14 +4,14 @@ import {
   getCharDataFromDbFromYesterday,
   getCharDataFromDbFromBeforeYesterday,
   insertDataToDb,
-} from "../supabase-api/useSupabase";
+} from "../supabase-api/useSupabase.js";
 import type {
   CharacterDiff,
   CharacterFromAoApi,
   CharacterDB,
 } from "../types/types";
-import { calculateDiffValuesVsBeforeYesterday } from "../util/calculateDiffValuesVsBeforeYesterday";
-import { filterAO20ApiResults } from "../util/filterCharacters";
+import { calculateDiffValuesVsBeforeYesterday } from "../util/calculateDiffValuesVsBeforeYesterday.js";
+import { filterAO20ApiResults } from "../util/filterCharacters.js";
 
 export const updateData = async () => {
   const charsFromRanking: CharacterFromAoApi[] = await getRankingFromAO20();
