@@ -1,4 +1,4 @@
-import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20";
+import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20.js";
 import {
   deleteCharDataFromDbFromToday,
   getCharDataFromDbFromYesterday,
