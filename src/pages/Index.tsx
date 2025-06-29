@@ -101,10 +101,13 @@ const Index = () => {
         </button>
       </div>
       {charDiffs !== null && (
-        <div>
-          {charDiffs.map((char) => (
-            <CharShowingDiffs key={char.character_name} {...char} />
-          ))}
+        <div className="grid lg:grid-cols-5 sm:grid-cols-3 gap-2">
+          {charDiffs.map(
+            (char) =>
+              char.exp > 0 && (
+                <CharShowingDiffs key={char.character_name} {...char} />
+              )
+          )}
         </div>
       )}
     </>

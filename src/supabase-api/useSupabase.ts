@@ -56,6 +56,7 @@ export const deleteCharDataFromDbFromToday = async () => {
 export const insertDataToDb = async (
   charsToInsert: Array<CharacterFromAoApi>
 ) => {
+  deleteCharDataFromDbFromToday();
   const today = new Date();
   const todayDate = today.toISOString().split("T")[0];
   const charsForDb = charsToInsert.map((char) => ({
