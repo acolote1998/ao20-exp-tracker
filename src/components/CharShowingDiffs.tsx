@@ -55,7 +55,9 @@ const CharShowingDiffs = ({
         </div>
         <div className="grid grid-cols-4 bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
           <p>{level}</p>
-          <p>{levelDiff === 0 ? exp : "-"}</p>
+          <p>
+            {levelDiff === 0 ? new Intl.NumberFormat("es-AR").format(exp) : "-"}
+          </p>
           <p>{exp_percentage.toFixed(2)}%</p>
           <p>{killed_npcs}</p>
         </div>
