@@ -71,6 +71,22 @@ const CharShowingDiffs = ({
           <p>{killed_npcs}</p>
         </div>
       </div>
+      <div>
+        {(best_kd || most_kills || most_npcs || most_xp) && (
+          <>
+            <div className="flex bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300 justify-center">
+              <p>Medallas</p>
+            </div>
+
+            <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
+              <p>{best_kd && "Mejor KDA"}</p>
+              <p>{most_kills && "Most Kills"}</p>
+              <p>{most_npcs && "Most NPCs"}</p>
+              <p>{most_xp && "Most XP"}</p>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
