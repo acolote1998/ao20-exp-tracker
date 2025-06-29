@@ -1,3 +1,3 @@
-import { updateData } from "./getFinalDiffs";
+import { updateData } from "./getFinalDiffs.js";
 
 updateData();
