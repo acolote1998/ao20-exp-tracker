@@ -52,8 +52,8 @@ const CharShowingDiffs = ({
 
       {/* Level / EXP / % / NPCs */}
       <div>
-        <div className="grid grid-cols-4 bg-gray-700 rounded-t-md text-center text-sm font-bold text-gray-300">
-          <p>Level</p>
+        <div className="grid grid-cols-4 bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300">
+          <p>LVL</p>
           <p>EXP</p>
           <p>%</p>
           <p>NPCs</p>
