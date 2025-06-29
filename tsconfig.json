@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "module": "esnext", // or "es2020", "es2022", "nodenext", etc.
+    "target": "es2020", // or later ES version
+    "moduleResolution": "node",
+    "strict": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
