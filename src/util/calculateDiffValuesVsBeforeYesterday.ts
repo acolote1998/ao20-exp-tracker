@@ -1,25 +1,27 @@
 import type { CharacterDB } from "../types/types";
-export const calculateDiffValuesVsYesterday = (
-  charsYesterday: CharacterDB[],
-  charsToday: CharacterDB[]
+export const calculateDiffValuesVsBeforeYesterday = (
+  charsBeforeYesterday: CharacterDB[],
+  charsYesterday: CharacterDB[]
 ) => {
+  const namesBeforeYesterday = charsBeforeYesterday.map(
+    (c) => c.character_name
+  );
   const namesYesterday = charsYesterday.map((c) => c.character_name);
-  const namesToday = charsToday.map((c) => c.character_name);
 
-  const commonNames = namesYesterday.filter((name) =>
-    namesToday.includes(name)
+  const commonNames = namesBeforeYesterday.filter((name) =>
+    namesYesterday.includes(name)
+  );
+
+  const filteredBeforeYesterday = charsBeforeYesterday.filter((c) =>
+    commonNames.includes(c.character_name)
   );
 
   const filteredYesterday = charsYesterday.filter((c) =>
     commonNames.includes(c.character_name)
   );
 
-  const filteredToday = charsToday.filter((c) =>
-    commonNames.includes(c.character_name)
-  );
-
-  const diffArray = filteredToday.map((c) => {
-    const y = filteredYesterday.find(
+  const diffArray = filteredYesterday.map((c) => {
+    const y = filteredBeforeYesterday.find(
       (char) => char.character_name === c.character_name
     );
 

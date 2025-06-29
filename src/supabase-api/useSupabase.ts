@@ -4,6 +4,24 @@ const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+export const getCharDataFromDbFromBeforeYesterday =
+  async (): Promise<Array<CharacterDB> | null> => {
+    const today = new Date();
+    const beforeYesterday = new Date(today);
+    beforeYesterday.setDate(today.getDate() - 2);
+    const beforeYesterdayDate = beforeYesterday.toISOString().split("T")[0];
+
+    const { data, error } = await supabase
+      .from("characters")
+      .select("*")
+      .eq("updated_at", beforeYesterdayDate);
+    if (error) {
+      console.error("Error fetching characters:", error);
+      return null;
+    }
+    return data;
+  };
+
 export const getCharDataFromDbFromYesterday =
   async (): Promise<Array<CharacterDB> | null> => {
     const today = new Date();
@@ -15,22 +33,6 @@ export const getCharDataFromDbFromYesterday =
       .from("characters")
       .select("*")
       .eq("updated_at", yesterdayDate);
-    if (error) {
-      console.error("Error fetching characters:", error);
-      return null;
-    }
-    return data;
-  };
-
-export const getCharDataFromDbFromToday =
-  async (): Promise<Array<CharacterDB> | null> => {
-    const today = new Date();
-    const todayDate = today.toISOString().split("T")[0];
-
-    const { data, error } = await supabase
-      .from("characters")
-      .select("*")
-      .eq("updated_at", todayDate);
     if (error) {
       console.error("Error fetching characters:", error);
       return null;
