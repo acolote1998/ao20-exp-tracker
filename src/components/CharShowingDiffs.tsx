@@ -104,7 +104,7 @@ const CharShowingDiffs = ({
               {most_xp && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostExp width={48} height={48} />
-                  <p className="font-normal text-sm mt-2">Most XP</p>
+                  <p className="font-normal text-sm mt-2">Mas XP</p>
                 </div>
               )}
             </div>
