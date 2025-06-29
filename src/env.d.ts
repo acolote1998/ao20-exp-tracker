@@ -1,5 +1,6 @@
 interface ImportMetaEnv {
-  readonly [key: string]: string | undefined;
+  readonly VITE_AO20_RANKING_ENDPOINT: string | undefined;
+  readonly VITE_SUPABASE_KEY: string | undefined;
 }
 
 interface ImportMeta {

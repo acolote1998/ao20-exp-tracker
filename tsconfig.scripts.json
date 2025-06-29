@@ -4,7 +4,9 @@
     "outDir": "dist-scripts",
     "module": "commonjs",
     "target": "es2020",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/main.tsx", "src/**/*.{tsx,jsx}"]
 }
