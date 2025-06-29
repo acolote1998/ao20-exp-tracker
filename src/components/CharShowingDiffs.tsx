@@ -83,22 +83,30 @@ const CharShowingDiffs = ({
             </div>
 
             <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
-              <p>
-                <BestKda width={40} height={40} />
-                {best_kd && "Mejor KDA"}
-              </p>
-              <p>
-                <MostKills width={40} height={40} />
-                {most_kills && "Most Kills"}
-              </p>
-              <p>
-                <MostNpcs width={48} height={48} />
-                {most_npcs && "Most NPCs"}
-              </p>
-              <p>
-                <MostExp width={48} height={48} />
-                {most_xp && "Most XP"}
-              </p>
+              {best_kd && (
+                <div className="flex flex-col items-center justify-center align-middle">
+                  <BestKda width={40} height={40} />
+                  <p className="font-normal text-sm">Mejor KD</p>
+                </div>
+              )}
+              {most_kills && (
+                <div className="flex flex-col items-center justify-center align-middle">
+                  <MostKills width={40} height={40} />
+                  <p className="font-normal text-sm">Mas Kills</p>
+                </div>
+              )}
+              {most_npcs && (
+                <div className="flex flex-col items-center justify-center align-middle">
+                  <MostNpcs width={48} height={48} />
+                  <p className="font-normal text-sm">Mas NPCs</p>
+                </div>
+              )}
+              {most_xp && (
+                <div className="flex flex-col items-center justify-center align-middle">
+                  <MostExp width={48} height={48} />
+                  <p className="font-normal text-sm">Most XP</p>
+                </div>
+              )}
             </div>
           </>
         )}
