@@ -39,10 +39,12 @@ export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
 
   if (charsFromDBBeforeYesterday && charsFromDBYesterday) {
     console.log("Returning diffs array");
-    return calculateDiffValuesVsBeforeYesterday(
+    const finalDiffs = calculateDiffValuesVsBeforeYesterday(
       charsFromDBBeforeYesterday,
       charsFromDBYesterday
     );
+
+    return finalDiffs.sort((a, b) => b.exp - a.exp);
   }
   console.log("Something went wrong");
   return null;
