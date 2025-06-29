@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "esnext", // or "es2020", "es2022", "nodenext", etc.
-    "target": "es2020", // or later ES version
-    "moduleResolution": "node",
-    "strict": true
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"]
   },
   "files": [],
   "references": [
