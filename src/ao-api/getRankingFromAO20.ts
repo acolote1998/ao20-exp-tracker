@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const VITE_AO20_RANKING_ENDPOINT: string | undefined = import.meta.env
-  .VITE_AO20_RANKING_ENDPOINT;
+const VITE_AO20_RANKING_ENDPOINT: string | undefined =
+  process.env.VITE_AO20_RANKING_ENDPOINT;
 
 if (!VITE_AO20_RANKING_ENDPOINT) {
   throw new Error("Missing env var VITE_AO20_RANKING_ENDPOINT");
