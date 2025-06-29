@@ -1,6 +1,6 @@
 import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
-
+import { Sword } from "./icons/Sword";
 const CharShowingDiffs = ({
   character_name,
   deaths,
@@ -31,8 +31,10 @@ const CharShowingDiffs = ({
 
       {/* Kills / Deaths / KD */}
       <div>
-        <div className="grid grid-cols-3 bg-gray-700 rounded-t-md text-center text-sm font-bold text-gray-300">
-          <p>Kills</p>
+        <div className="grid grid-cols-3 bg-gray-700 rounded-t-md text-center text-sm font-bold text-gray-300 items-center justify-center pt-2 pb-2">
+          <div className="flex justify-center">
+            <Sword width={24} height={24} />
+          </div>
           <p>Deaths</p>
           <p>KD</p>
         </div>
