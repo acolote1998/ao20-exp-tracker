@@ -8,7 +8,6 @@ const characterNames = [
   "velkon",
   "zatori",
   "helzebur",
-  "fak",
   "bitrhak",
   "iorio",
 ];
