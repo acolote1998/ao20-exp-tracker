@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const VITE_AO20_RANKING_ENDPOINT =
-  "https://api.ao20.com.ar:2083/rankings/users?top=200&season=5&classId=/classid/";
+const VITE_AO20_RANKING_ENDPOINT = `https://api.ao20.com.ar:2083/rankings/users?top=200&season=5&classId=/classid/&t=${new Date().getTime()}`;
 
 // Class Ids
 /*
