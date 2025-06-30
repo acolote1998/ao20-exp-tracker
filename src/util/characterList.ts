@@ -10,6 +10,13 @@ const characterNames = [
   "helzebur",
   "bitrhak",
   "iorio",
+  "aburrido",
+  "dex",
+  "legolas",
+  "tan tej",
+  "bonham",
+  "ru thuka",
+  "merli",
 ];
 
 export default characterNames;
