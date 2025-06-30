@@ -53,21 +53,33 @@ export const updateData = async () => {
 export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
   const charsFromDBYesterday: CharacterDB[] | null =
     await getCharDataFromDbFromYesterday();
-  console.log("Obtained data for yesterday from DB");
+  console.log(
+    `📅 Data from yesterday fetched: ${
+      charsFromDBYesterday?.length ?? 0
+    } records`
+  );
 
   const charsFromDBBeforeYesterday: CharacterDB[] | null =
     await getCharDataFromDbFromBeforeYesterday();
-  console.log("Obtained data for before yesterday from DB");
+  console.log(
+    `📅 Data from before yesterday fetched: ${
+      charsFromDBBeforeYesterday?.length ?? 0
+    } records`
+  );
 
   if (charsFromDBBeforeYesterday && charsFromDBYesterday) {
-    console.log("Returning diffs array");
+    console.log(
+      "🔍 Calculating diffs between yesterday and before yesterday..."
+    );
     const finalDiffs = calculateDiffValuesVsBeforeYesterday(
       charsFromDBBeforeYesterday,
       charsFromDBYesterday
     );
 
+    console.log(`✅ Diff calculation complete.`);
     return finalDiffs.sort((a, b) => b.exp - a.exp);
   }
-  console.log("Something went wrong");
+
+  console.error("⚠️ Could not fetch all required data to calculate diffs.");
   return null;
 };
