@@ -28,7 +28,7 @@ export const updateData = async () => {
     `🔍 Characters after filtering by name list: ${filteredCharsFromRanking.length}`
   );
   console.log(
-    filteredCharsFromRanking.length === 11
+    filteredCharsFromRanking.length === 18
       ? "✅ All expected characters were filtered"
       : "⚠️ Some expected characters are missing from the filter"
   );
