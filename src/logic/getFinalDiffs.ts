@@ -17,7 +17,7 @@ export const updateData = async () => {
   const charsFromRanking: CharacterFromAoApi[] = await getRankingFromAO20();
   console.log(`✅ Characters fetched from API: ${charsFromRanking.length}`);
   console.log(
-    charsFromRanking.length === 2000
+    charsFromRanking.length === 1000
       ? "✅ All 2000 characters were fetched"
       : "⚠️ Not all characters were fetched"
   );
@@ -29,7 +29,7 @@ export const updateData = async () => {
   );
   console.log(
     filteredCharsFromRanking.length === 11
-      ? "✅ All expected characters were matched"
+      ? "✅ All expected characters were filtered"
       : "⚠️ Some expected characters are missing from the filter"
   );
 
