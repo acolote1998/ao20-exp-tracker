@@ -18,7 +18,7 @@ export const updateData = async () => {
   console.log(`✅ Characters fetched from API: ${charsFromRanking.length}`);
   console.log(
     charsFromRanking.length === 1000
-      ? "✅ All 2000 characters were fetched"
+      ? "✅ All 1000 characters were fetched"
       : "⚠️ Not all characters were fetched"
   );
 
