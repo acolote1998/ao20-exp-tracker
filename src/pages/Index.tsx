@@ -14,7 +14,7 @@ const Index = () => {
       let most_kills_name = chars[0].character_name;
 
       let best_kd = 0.01;
-      let best_kd_name = chars[0].character_name;
+      let best_kd_name: string | null = null;
 
       let most_xp = 0;
       let most_xp_name = chars[0].character_name;
@@ -27,9 +27,17 @@ const Index = () => {
           most_kills = char.total_kills;
           most_kills_name = char.character_name;
         }
-        if (char.total_kills / char.deaths >= best_kd) {
-          best_kd = char.total_kills / char.deaths;
-          best_kd_name = char.character_name;
+        if (char.deaths === 0) {
+          if (char.total_kills >= best_kd) {
+            best_kd = char.total_kills;
+            best_kd_name = char.character_name;
+          }
+        } else {
+          const kd = char.total_kills / char.deaths;
+          if (kd >= best_kd) {
+            best_kd = kd;
+            best_kd_name = char.character_name;
+          }
         }
         if (char.exp >= most_xp) {
           most_xp = char.exp;
@@ -40,6 +48,10 @@ const Index = () => {
           most_npcs_name = char.character_name;
         }
       });
+      console.log(best_kd_name, "Best KD");
+      console.log(most_kills_name, "Most Kills");
+      console.log(most_npcs_name, "Most NPCs");
+      console.log(most_xp_name, "Most XP");
       chars.forEach((char) => {
         if (
           char.character_name.toLowerCase() === most_kills_name.toLowerCase()
@@ -54,7 +66,10 @@ const Index = () => {
         if (char.character_name.toLowerCase() === most_xp_name.toLowerCase()) {
           char.most_xp = true;
         }
-        if (char.character_name.toLowerCase() === best_kd_name.toLowerCase()) {
+        if (
+          best_kd_name &&
+          char.character_name.toLowerCase() === best_kd_name.toLowerCase()
+        ) {
           char.best_kd = true;
         }
       });
