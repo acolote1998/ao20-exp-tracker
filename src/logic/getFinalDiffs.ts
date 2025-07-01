@@ -2,7 +2,7 @@ import { getRankingFromAO20 } from "../ao-api/getRankingFromAO20.js";
 import {
   deleteCharDataFromDbFromToday,
   getCharDataFromDbFromYesterday,
-  getCharDataFromDbFromBeforeYesterday,
+  getCharDataFromDbFromToday,
   insertDataToDb,
 } from "../supabase-api/useSupabase.js";
 import type {
@@ -51,6 +51,12 @@ export const updateData = async () => {
 };
 
 export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
+  const charsFromDBToday: CharacterDB[] | null =
+    await getCharDataFromDbFromToday();
+  console.log(
+    `📅 Data from today fetched: ${charsFromDBToday?.length ?? 0} records`
+  );
+
   const charsFromDBYesterday: CharacterDB[] | null =
     await getCharDataFromDbFromYesterday();
   console.log(
@@ -59,21 +65,11 @@ export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
     } records`
   );
 
-  const charsFromDBBeforeYesterday: CharacterDB[] | null =
-    await getCharDataFromDbFromBeforeYesterday();
-  console.log(
-    `📅 Data from before yesterday fetched: ${
-      charsFromDBBeforeYesterday?.length ?? 0
-    } records`
-  );
-
-  if (charsFromDBBeforeYesterday && charsFromDBYesterday) {
-    console.log(
-      "🔍 Calculating diffs between yesterday and before yesterday..."
-    );
+  if (charsFromDBToday && charsFromDBYesterday) {
+    console.log("🔍 Calculating diffs between today and yesterday...");
     const finalDiffs = calculateDiffValuesVsBeforeYesterday(
-      charsFromDBBeforeYesterday,
-      charsFromDBYesterday
+      charsFromDBYesterday,
+      charsFromDBToday
     );
 
     console.log(`✅ Diff calculation complete.`);

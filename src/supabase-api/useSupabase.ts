@@ -5,17 +5,15 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmaW1pcWthaHZhcGNzcWJlZXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMTg2OTEsImV4cCI6MjA2NjY5NDY5MX0.phD5ByV4rVLXIgAUNE8nqt3zZG3cXE5THS-7todbqfk";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export const getCharDataFromDbFromBeforeYesterday =
+export const getCharDataFromDbFromToday =
   async (): Promise<Array<CharacterDB> | null> => {
     const today = new Date();
-    const beforeYesterday = new Date(today);
-    beforeYesterday.setDate(today.getDate() - 2);
-    const beforeYesterdayDate = beforeYesterday.toISOString().split("T")[0];
+    const todaysDate = today.toISOString().split("T")[0];
 
     const { data, error } = await supabase
       .from("characters")
       .select("*")
-      .eq("updated_at", beforeYesterdayDate);
+      .eq("updated_at", todaysDate);
     if (error) {
       console.error("Error fetching characters:", error);
       return null;
