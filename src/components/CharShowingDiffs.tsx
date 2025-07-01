@@ -68,7 +68,7 @@ const CharShowingDiffs = ({
         </div>
         <div className="grid grid-cols-4 bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
           <p>{levelDiff === 0 ? level : level - 1}</p>
-          <p>
+          <div>
             {levelDiff === 0 ? (
               new Intl.NumberFormat("es-AR").format(exp)
             ) : (
@@ -76,7 +76,7 @@ const CharShowingDiffs = ({
                 <ArrowRightCircle className="w-5 h-5 mr-1" />
               </div>
             )}
-          </p>
+          </div>
           <p>{levelDiff === 0 ? exp_percentage.toFixed(2) + `%` : level}</p>
           <p>{killed_npcs}</p>
         </div>
