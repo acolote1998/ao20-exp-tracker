@@ -10,7 +10,7 @@ import type {
   CharacterFromAoApi,
   CharacterDB,
 } from "../types/types";
-import { calculateDiffValuesVsBeforeYesterday } from "../util/calculateDiffValuesVsBeforeYesterday.js";
+import { calculateDiffValuesVsYesterday } from "../util/calculateDiffValuesVsYesterday.js";
 import { filterAO20ApiResults } from "../util/filterCharacters.js";
 
 export const updateData = async () => {
@@ -67,7 +67,7 @@ export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
 
   if (charsFromDBToday && charsFromDBYesterday) {
     console.log("🔍 Calculating diffs between today and yesterday...");
-    const finalDiffs = calculateDiffValuesVsBeforeYesterday(
+    const finalDiffs = calculateDiffValuesVsYesterday(
       charsFromDBYesterday,
       charsFromDBToday
     );
