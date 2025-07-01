@@ -91,9 +91,13 @@ const Index = () => {
         <h1 className="text-red-600 text-5xl font-extrabold text-center m-10">
           OBSCURE
         </h1>
-        <h3 className="text-white text-3xl font-semibold text-center m-5">
+        {/* <h3 className="text-white text-3xl font-semibold text-center m-5">
           {beforeYesterdayDate} - {yesterdayDate}
+        </h3> */}
+        <h3 className="text-white text-3xl font-semibold text-center m-5">
+          AYER
         </h3>
+
         {charDiffs !== null && (
           <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-2">
             {charDiffs.map(
