@@ -23,6 +23,7 @@ const CharShowingDiffs = ({
 }: CharacterDiff) => {
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
+  const colsClass = levelDiff === 0 ? "grid-cols-4" : "grid-cols-3";
   return (
     <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto overflow-hidden">
       {/* Name and Level-up */}
@@ -73,8 +74,7 @@ const CharShowingDiffs = ({
       {/* Level / EXP / % / NPCs*/}
       <div>
         <div
-          className={`grid grid-cols-${
-            levelDiff === 0 ? "4" : "3"
+          className={`grid ${colsClass}
           } bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300`}
         >
           <p>LVL</p>
@@ -83,8 +83,7 @@ const CharShowingDiffs = ({
           <p>NPCs</p>
         </div>
         <div
-          className={`grid grid-cols-${
-            levelDiff === 0 ? "4" : "3"
+          className={`grid ${colsClass}
           } bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium`}
         >
           <p>{levelDiff === 0 ? level : level - 1}</p>
