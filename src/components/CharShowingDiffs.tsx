@@ -23,23 +23,35 @@ const CharShowingDiffs = ({
 }: CharacterDiff) => {
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
-
+  const calculateXpBar = () => {
+    const totalWidth = 400;
+    return (exp_percentage_updated * totalWidth) / 100;
+  };
   return (
-    <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto">
-      {/* Name */}
-      <div className="relative text-center">
-        {/* Centered character name */}
-        <h2 className="text-2xl font-semibold text-pink-500">
+    <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto overflow-hidden">
+      {/* Name and Level-up */}
+      <div className="relative">
+        <h2 className="text-2xl font-semibold text-pink-500 text-center">
           {character_name}
         </h2>
 
-        {/* Right-aligned leveled up badge */}
         {leveledUp && (
-          <div className="absolute top-0 right-0 flex items-center text-green-400 text-sm font-medium">
+          <div className="absolute top-1 right-2 flex items-center text-green-400 text-sm font-medium">
             <ArrowUpCircle className="w-5 h-5 mr-1" />
-            ¡Subió de nivel!
+            Subió de nivel
           </div>
         )}
+      </div>
+
+      {/* XP Bar */}
+      <div className="w-full bg-gray-700 rounded-full h-5 relative overflow-hidden">
+        <div
+          style={{ width: `${exp_percentage_updated}%` }}
+          className="bg-red-700 h-full transition-all duration-300 ease-out"
+        />
+        <p className="absolute w-full text-center text-sm font-medium text-white top-1/2 -translate-y-1/2">
+          {exp_percentage_updated}%
+        </p>
       </div>
 
       {/* Kills / Deaths / KD */}
