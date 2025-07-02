@@ -1,5 +1,5 @@
 import type { CharacterDiff } from "../types/types";
-import { ArrowRightCircle, ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
+import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
 import { BestKda } from "./icons/BestKda";
@@ -72,24 +72,24 @@ const CharShowingDiffs = ({
 
       {/* Level / EXP / % / NPCs*/}
       <div>
-        <div className="grid grid-cols-4 bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300">
+        <div
+          className={`grid grid-cols-${
+            levelDiff === 0 ? "4" : "3"
+          } bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300`}
+        >
           <p>LVL</p>
-          <p>{levelDiff === 0 ? "EXP" : ""}</p>
-          <p>{levelDiff === 0 ? "%" : ""}</p>
+          <p>EXP</p>
+          {levelDiff === 0 && <p>%</p>}
           <p>NPCs</p>
         </div>
-        <div className="grid grid-cols-4 bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
+        <div
+          className={`grid grid-cols-${
+            levelDiff === 0 ? "4" : "3"
+          } bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium`}
+        >
           <p>{levelDiff === 0 ? level : level - 1}</p>
-          <div>
-            {levelDiff === 0 ? (
-              new Intl.NumberFormat("es-AR").format(exp)
-            ) : (
-              <div className="flex items-center justify-center text-green-400 mt-1 text-sm font-medium">
-                <ArrowRightCircle className="w-5 h-5 mr-1" />
-              </div>
-            )}
-          </div>
-          <p>{levelDiff === 0 ? exp_percentage.toFixed(2) + `%` : level}</p>
+          <div>{new Intl.NumberFormat("es-AR").format(exp)}</div>
+          {levelDiff === 0 && <p>{exp_percentage.toFixed(2)} %</p>}
           <p>{killed_npcs}</p>
         </div>
       </div>

@@ -22,12 +22,18 @@ export const calculateDiffValuesVsYesterday = (
     const y = filteredYesterday.find(
       (char) => char.character_name === c.character_name
     );
-
+    const gainedExp = () => {
+      if (y?.level && c.level - y?.level > 0) {
+        return y.exp_next_level - y.exp + c.exp;
+      } else {
+        return c.exp - (y?.exp ?? 0);
+      }
+    };
     return {
       character_name: c.character_name,
       class_name: c.class_name,
       deaths: c.deaths - (y?.deaths ?? 0),
-      exp: c.exp - (y?.exp ?? 0),
+      exp: gainedExp(),
       exp_next_level: c.exp_next_level - (y?.exp_next_level ?? 0),
       exp_percentage: c.exp_percentage - (y?.exp_percentage ?? 0),
       exp_percentage_updated: c.exp_percentage,
