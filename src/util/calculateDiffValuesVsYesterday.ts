@@ -30,6 +30,7 @@ export const calculateDiffValuesVsYesterday = (
       exp: c.exp - (y?.exp ?? 0),
       exp_next_level: c.exp_next_level - (y?.exp_next_level ?? 0),
       exp_percentage: c.exp_percentage - (y?.exp_percentage ?? 0),
+      exp_percentage_updated: c.exp_percentage,
       killed_npcs: c.killed_npcs - (y?.killed_npcs ?? 0),
       level: c.level,
       levelDiff: c.level - (y?.level ?? 0), // always included

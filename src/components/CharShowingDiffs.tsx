@@ -19,6 +19,7 @@ const CharShowingDiffs = ({
   most_kills,
   most_npcs,
   most_xp,
+  exp_percentage_updated,
 }: CharacterDiff) => {
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
@@ -26,14 +27,17 @@ const CharShowingDiffs = ({
   return (
     <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto">
       {/* Name */}
-      <div className="text-center">
+      <div className="relative text-center">
+        {/* Centered character name */}
         <h2 className="text-2xl font-semibold text-pink-500">
           {character_name}
         </h2>
+
+        {/* Right-aligned leveled up badge */}
         {leveledUp && (
-          <div className="flex items-center justify-center text-green-400 mt-1 text-sm font-medium">
+          <div className="absolute top-0 right-0 flex items-center text-green-400 text-sm font-medium">
             <ArrowUpCircle className="w-5 h-5 mr-1" />
-            Subio de nivel !
+            ¡Subió de nivel!
           </div>
         )}
       </div>
