@@ -17,6 +17,7 @@ const characterNames = [
   "bonham",
   "ru thuka",
   "merli",
+  "picton",
 ];
 
 export default characterNames;
