@@ -73,7 +73,14 @@ export const getFinalDiffs = async (): Promise<CharacterDiff[] | null> => {
     );
 
     console.log(`✅ Diff calculation complete.`);
-    return finalDiffs.sort((a, b) => b.exp - a.exp);
+    return finalDiffs.sort((a, b) => {
+      // First: sort by levelDiff descending
+      if (b.levelDiff !== a.levelDiff) {
+        return b.levelDiff - a.levelDiff;
+      }
+      // Then: if levelDiff is the same, sort by EXP descending
+      return b.exp - a.exp;
+    });
   }
 
   console.error("⚠️ Could not fetch all required data to calculate diffs.");
