@@ -23,10 +23,6 @@ const CharShowingDiffs = ({
 }: CharacterDiff) => {
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
-  const calculateXpBar = () => {
-    const totalWidth = 400;
-    return (exp_percentage_updated * totalWidth) / 100;
-  };
   return (
     <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto overflow-hidden">
       {/* Name and Level-up */}
