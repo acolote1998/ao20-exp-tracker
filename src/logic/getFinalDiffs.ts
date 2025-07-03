@@ -13,8 +13,35 @@ import type {
 import { calculateDiffValuesVsYesterday } from "../util/calculateDiffValuesVsYesterday.js";
 import { filterAO20ApiResults } from "../util/filterCharacters.js";
 
+const retryAsync = async <T>(
+  fn: () => Promise<T>,
+  retries = 3,
+  delayMs = 60000 // 1 minute
+): Promise<T> => {
+  let lastError;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastError = err;
+      console.warn(
+        `⚠️ Attempt ${attempt} failed. Retrying in ${delayMs / 1000}s...`
+      );
+      if (attempt < retries) {
+        await new Promise((res) => setTimeout(res, delayMs));
+      }
+    }
+  }
+  throw lastError;
+};
+
 export const updateData = async () => {
-  const charsFromRanking: CharacterFromAoApi[] = await getRankingFromAO20();
+  const charsFromRanking: CharacterFromAoApi[] = await retryAsync(
+    getRankingFromAO20,
+    3,
+    60000
+  );
+
   console.log(`✅ Characters fetched from API: ${charsFromRanking.length}`);
   console.log(
     charsFromRanking.length === 1000
@@ -34,7 +61,7 @@ export const updateData = async () => {
   );
 
   console.log("🗑️ Deleting old data from today in DB...");
-  const deletedRows = await deleteCharDataFromDbFromToday();
+  const deletedRows = await retryAsync(deleteCharDataFromDbFromToday, 3, 60000);
   console.log(
     deletedRows && deletedRows > 0
       ? `✅ ${deletedRows} rows deleted`
@@ -42,7 +69,11 @@ export const updateData = async () => {
   );
 
   console.log("💾 Inserting new data for today...");
-  const insertedRows = await insertDataToDb(filteredCharsFromRanking);
+  const insertedRows = await retryAsync(
+    () => insertDataToDb(filteredCharsFromRanking),
+    3,
+    60000
+  );
   console.log(
     insertedRows && insertedRows > 0
       ? `✅ ${insertedRows} rows inserted`
