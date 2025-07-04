@@ -11,6 +11,7 @@ const CharShowingDiffs = ({
   deaths,
   exp,
   exp_percentage,
+  exp_updated,
   killed_npcs,
   level,
   levelDiff,
@@ -39,18 +40,21 @@ const CharShowingDiffs = ({
           </div>
         )}
       </div>
-
       {/* XP Bar */}
       <div className="w-full bg-gray-700 rounded-full h-5 relative overflow-hidden">
         <div
           style={{ width: `${exp_percentage_updated}%` }}
           className="bg-red-700 h-full transition-all duration-300 ease-out"
         />
-        <p className="absolute w-full text-center text-sm font-medium text-white top-1/2 -translate-y-1/2">
-          {exp_percentage_updated}%
-        </p>
+        <div className="absolute w-full text-center text-sm font-medium text-white top-1/2 -translate-y-1/2 group">
+          <span className="inline-block group-hover:hidden">
+            {exp_percentage_updated}%
+          </span>
+          <span className="hidden group-hover:inline-block">
+            {new Intl.NumberFormat("es-AR").format(exp_updated)}
+          </span>
+        </div>
       </div>
-
       {/* Kills / Deaths / KD */}
       <div>
         <div className="grid grid-cols-3 bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300 items-center justify-center pt-2 pb-2">
@@ -70,7 +74,6 @@ const CharShowingDiffs = ({
           </p>
         </div>
       </div>
-
       {/* Level / EXP / % / NPCs*/}
       <div>
         <div
