@@ -19,6 +19,7 @@ const characterNames = [
   "merli",
   "picton",
   "kaeshi",
+  "poxito",
 ];
 
 export const externalCharacters = ["picton", "kaeshi"];
