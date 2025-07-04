@@ -37,6 +37,7 @@ const characterNames = [
   "haerin",
   "kaizen",
   "terra nova",
+  "agben",
 ];
 
 export const externalCharacters = [
@@ -59,6 +60,7 @@ export const externalCharacters = [
   "haerin",
   "kaizen",
   "terra nova",
+  "agben",
 ];
 
 export default characterNames;
