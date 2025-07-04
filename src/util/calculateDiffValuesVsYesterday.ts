@@ -1,3 +1,4 @@
+import { externalCharacters } from "./characterList";
 import type { CharacterDB } from "../types/types";
 export const calculateDiffValuesVsYesterday = (
   charsYesterday: CharacterDB[],
@@ -19,6 +20,9 @@ export const calculateDiffValuesVsYesterday = (
   );
 
   const diffArray = filteredToday.map((c) => {
+    const isExternal = () => {
+      return externalCharacters.includes(c.character_name.toLocaleLowerCase());
+    };
     const y = filteredYesterday.find(
       (char) => char.character_name === c.character_name
     );
@@ -42,6 +46,7 @@ export const calculateDiffValuesVsYesterday = (
       levelDiff: c.level - (y?.level ?? 0), // always included
       race_name: c.race_name,
       total_kills: c.total_kills - (y?.total_kills ?? 0),
+      external: isExternal(),
     };
   });
   return diffArray;

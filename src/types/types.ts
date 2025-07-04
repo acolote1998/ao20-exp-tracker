@@ -53,4 +53,5 @@ export type CharacterDiff = {
   best_kd?: boolean;
   most_xp?: boolean;
   most_npcs?: boolean;
+  external?: boolean;
 };
