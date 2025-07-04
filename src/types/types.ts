@@ -54,4 +54,5 @@ export type CharacterDiff = {
   most_xp?: boolean;
   most_npcs?: boolean;
   external?: boolean;
+  exp_updated: number;
 };
