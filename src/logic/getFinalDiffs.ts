@@ -11,6 +11,7 @@ import type {
   CharacterDB,
 } from "../types/types";
 import { calculateDiffValuesVsYesterday } from "../util/calculateDiffValuesVsYesterday.js";
+import characterNames from "../util/characterList.js";
 import { filterAO20ApiResults } from "../util/filterCharacters.js";
 
 const retryAsync = async <T>(
@@ -55,7 +56,7 @@ export const updateData = async () => {
     `🔍 Characters after filtering by name list: ${filteredCharsFromRanking.length}`
   );
   console.log(
-    filteredCharsFromRanking.length === 18
+    filteredCharsFromRanking.length === characterNames.length
       ? "✅ All expected characters were filtered"
       : "⚠️ Some expected characters are missing from the filter"
   );
