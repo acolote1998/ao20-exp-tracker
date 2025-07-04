@@ -18,6 +18,9 @@ const characterNames = [
   "ru thuka",
   "merli",
   "picton",
+  "kaeshi",
 ];
+
+export const externalCharacters = ["picton", "kaeshi"];
 
 export default characterNames;
