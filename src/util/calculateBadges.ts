@@ -1,5 +1,5 @@
 import type { CharacterDiff } from "../types/types";
-import { externalCharacters } from "./characterList";
+import { externalCharacters } from "./characterList.js";
 export const calculateBadges = (chars: CharacterDiff[]) => {
   if (!chars.length) return;
 

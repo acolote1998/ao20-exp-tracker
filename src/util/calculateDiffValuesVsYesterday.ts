@@ -1,4 +1,4 @@
-import { externalCharacters } from "./characterList";
+import { externalCharacters } from "./characterList.js";
 import type { CharacterDB } from "../types/types";
 export const calculateDiffValuesVsYesterday = (
   charsYesterday: CharacterDB[],
