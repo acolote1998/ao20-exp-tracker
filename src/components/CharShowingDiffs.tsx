@@ -26,7 +26,23 @@ const CharShowingDiffs = ({
   const leveledUp = levelDiff > 0;
   const colsClass = levelDiff === 0 ? "grid-cols-4" : "grid-cols-3";
   return (
-    <div className="bg-gray-800 rounded-2xl shadow-lg text-gray-100 p-4 space-y-4 w-full max-w-md mx-auto overflow-hidden">
+    <div
+      className={`
+        cursor-pointer relative
+        duration-300
+        ease-in-out
+        transform
+        hover:scale-102
+        bg-gray-800
+        rounded-2xl
+      text-gray-100
+        p-4
+        space-y-4
+        w-full
+        max-w-md
+        mx-auto
+        overflow-hidden`}
+    >
       {/* Name and Level-up */}
       <div className="relative">
         <h2 className="text-2xl font-semibold text-pink-500 text-center">
