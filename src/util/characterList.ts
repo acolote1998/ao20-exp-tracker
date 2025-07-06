@@ -38,6 +38,14 @@ const characterNames = [
   "kaizen",
   "terra nova",
   "agben",
+  "kurko",
+  "meunier",
+  "juanjax",
+  "gil galad",
+  "showtime",
+  "argeliot",
+  "arnaldo",
+  "snake",
 ];
 
 export const externalCharacters = [
@@ -61,6 +69,14 @@ export const externalCharacters = [
   "kaizen",
   "terra nova",
   "agben",
+  "kurko",
+  "meunier",
+  "juanjax",
+  "gil galad",
+  "showtime",
+  "argeliot",
+  "arnaldo",
+  "snake",
 ];
 
 export default characterNames;

@@ -46,7 +46,7 @@ const Index = () => {
           <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-2">
             {charDiffs.map(
               (char) =>
-                (char.exp > 0 || char.levelDiff > 0) &&
+                (char.exp > 50000 || char.levelDiff > 0) &&
                 char.external && (
                   <CharShowingDiffs key={char.character_name} {...char} />
                 )
