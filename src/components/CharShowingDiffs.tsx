@@ -23,8 +23,21 @@ const CharShowingDiffs = ({
   exp_percentage_updated,
 }: CharacterDiff) => {
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
+
   const leveledUp = levelDiff > 0;
-  const colsClass = levelDiff === 0 ? "grid-cols-4" : "grid-cols-3";
+
+  const calculateCols = () => {
+    let baseCols = 4;
+    if (levelDiff > 0) {
+      baseCols--;
+    }
+    if (killed_npcs === 0) {
+      baseCols--;
+    }
+    return baseCols;
+  };
+
+  const colsClass = `grid-cols-${calculateCols()}`;
   return (
     <div
       className={`
@@ -99,7 +112,7 @@ const CharShowingDiffs = ({
           <p>LVL</p>
           <p>EXP</p>
           {levelDiff === 0 && <p>%</p>}
-          <p>NPCs</p>
+          {killed_npcs > 0 && <p>NPCs</p>}
         </div>
         <div
           className={`grid ${colsClass}
@@ -114,7 +127,7 @@ const CharShowingDiffs = ({
           </p>
           <div>{new Intl.NumberFormat("es-AR").format(exp)}</div>
           {levelDiff === 0 && <p>{exp_percentage.toFixed(2)} %</p>}
-          <p>{killed_npcs}</p>
+          {killed_npcs > 0 && <p>{killed_npcs}</p>}
         </div>
       </div>
       <div>
