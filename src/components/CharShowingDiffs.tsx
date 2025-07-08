@@ -77,10 +77,23 @@ const CharShowingDiffs = ({
       </div>
       {/* XP Bar */}
       <div className="w-full bg-gray-700 rounded-full h-5 relative overflow-hidden">
-        <div
-          style={{ width: `${exp_percentage_updated}%` }}
-          className="bg-red-700 h-full transition-all duration-300 ease-out"
-        />
+        <div className="h-5 flex">
+          {levelDiff === 0 && (
+            <div
+              style={{ width: `${exp_percentage_updated - exp_percentage}%` }}
+              className="bg-red-700 transition-all duration-300 ease-out"
+            />
+          )}
+          <div
+            style={{
+              width: `${
+                levelDiff === 0 ? exp_percentage : exp_percentage_updated
+              }%`,
+            }}
+            className="bg-green-600 transition-all duration-300 ease-out"
+          />
+        </div>
+
         <div className="absolute w-full text-center text-sm font-medium text-white top-1/2 -translate-y-1/2 group">
           <span className="inline-block group-hover:hidden">
             {exp_percentage_updated}%
