@@ -27,6 +27,14 @@ const CharShowingDiffs = ({
 
   const leveledUp = levelDiff > 0;
 
+  const today = new Date();
+  const levelUp = new Date(today);
+  const amountOfDaysOfTraining = Math.ceil(
+    (exp_next_level_raw - exp_updated) / exp
+  ).toFixed(1);
+  levelUp.setDate(today.getDate() + Number(amountOfDaysOfTraining));
+  const levelUpDay = String(levelUp.getDate()).padStart(2, "0");
+  const levelUpMonth = String(levelUp.getMonth() + 1).padStart(2, "0");
   const calculateCols = () => {
     let baseCols = 4;
     if (levelDiff > 0) {
@@ -69,12 +77,15 @@ const CharShowingDiffs = ({
           {character_name}
         </h2>
         <div
-          className={`flex justify-center text-gray-300 opacity-50 text-sm font-medium`}
+          className={`flex justify-center text-gray-300 opacity-50 text-sm font-semibold group`}
         >
-          <p>
+          <span className="inline-block group-hover:hidden">
             Siguiente nivel en{" "}
             {((exp_next_level_raw - exp_updated) / exp).toFixed(1)} dias
-          </p>
+          </span>
+          <span className="hidden group-hover:inline-block">
+            Siguiente nivel el {levelUpDay}/{levelUpMonth}
+          </span>
         </div>
 
         {leveledUp && (
