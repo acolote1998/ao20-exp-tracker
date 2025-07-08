@@ -44,6 +44,7 @@ export type CharacterDiff = {
   exp_next_level: number;
   exp_percentage: number;
   exp_percentage_updated: number;
+  exp_next_level_raw: number;
   killed_npcs: number;
   level: number;
   levelDiff: number; // difference in level

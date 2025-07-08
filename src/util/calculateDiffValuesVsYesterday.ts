@@ -38,6 +38,7 @@ export const calculateDiffValuesVsYesterday = (
       class_name: c.class_name,
       deaths: c.deaths - (y?.deaths ?? 0),
       exp: gainedExp(),
+      exp_next_level_raw: c.exp_next_level,
       exp_next_level: c.exp_next_level - (y?.exp_next_level ?? 0),
       exp_percentage: c.exp_percentage - (y?.exp_percentage ?? 0),
       exp_updated: c.exp,

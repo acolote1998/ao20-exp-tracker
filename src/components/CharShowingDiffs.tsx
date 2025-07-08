@@ -7,6 +7,7 @@ import { MostKills } from "./icons/MostKills";
 import { MostNpcs } from "./icons/MostNpcs";
 import { MostExp } from "./icons/MostXp";
 const CharShowingDiffs = ({
+  exp_next_level_raw,
   character_name,
   deaths,
   exp,
@@ -67,6 +68,11 @@ const CharShowingDiffs = ({
         <h2 className="text-2xl font-semibold text-pink-500 text-center">
           {character_name}
         </h2>
+        <div
+          className={`flex justify-center text-gray-300 opacity-50 text-sm font-medium`}
+        >
+          <p>Siguiente nivel en {(exp_next_level_raw / exp).toFixed(1)} dias</p>
+        </div>
 
         {leveledUp && (
           <div className="absolute top-1 right-2 flex items-center text-green-400 text-sm font-medium">
