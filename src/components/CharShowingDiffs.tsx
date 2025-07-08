@@ -105,7 +105,13 @@ const CharShowingDiffs = ({
           className={`grid ${colsClass}
           } bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium`}
         >
-          <p>{levelDiff === 0 ? level : level - 1}</p>
+          <p
+            className={`${
+              levelDiff === 0 ? "text-white" : "text-green-400 font-black"
+            }`}
+          >
+            {level}
+          </p>
           <div>{new Intl.NumberFormat("es-AR").format(exp)}</div>
           {levelDiff === 0 && <p>{exp_percentage.toFixed(2)} %</p>}
           <p>{killed_npcs}</p>
