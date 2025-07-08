@@ -35,7 +35,7 @@ const CharShowingDiffs = ({
         hover:scale-102
         bg-gray-800
         rounded-2xl
-      text-gray-100
+        text-gray-100
         p-4
         space-y-4
         w-full
