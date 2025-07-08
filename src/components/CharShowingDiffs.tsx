@@ -71,7 +71,10 @@ const CharShowingDiffs = ({
         <div
           className={`flex justify-center text-gray-300 opacity-50 text-sm font-medium`}
         >
-          <p>Siguiente nivel en {(exp_next_level_raw / exp).toFixed(1)} dias</p>
+          <p>
+            Siguiente nivel en{" "}
+            {((exp_next_level_raw - exp_updated) / exp).toFixed(1)} dias
+          </p>
         </div>
 
         {leveledUp && (
