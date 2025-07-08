@@ -37,7 +37,13 @@ const CharShowingDiffs = ({
     return baseCols;
   };
 
-  const colsClass = `grid-cols-${calculateCols()}`;
+  const colsClass =
+    calculateCols() === 2
+      ? "grid-cols-2"
+      : calculateCols() === 3
+      ? "grid-cols-3"
+      : "grid-cols-4";
+
   return (
     <div
       className={`
@@ -107,7 +113,7 @@ const CharShowingDiffs = ({
       <div>
         <div
           className={`grid ${colsClass}
-          } bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300`}
+           bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300`}
         >
           <p>LVL</p>
           <p>EXP</p>
@@ -116,7 +122,7 @@ const CharShowingDiffs = ({
         </div>
         <div
           className={`grid ${colsClass}
-          } bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium`}
+           bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium`}
         >
           <p
             className={`${
