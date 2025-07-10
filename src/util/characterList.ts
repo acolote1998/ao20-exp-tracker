@@ -46,6 +46,7 @@ const characterNames = [
   "argeliot",
   "arnaldo",
   "snake",
+  "muffinjobs",
 ];
 
 export const externalCharacters = [
@@ -77,6 +78,7 @@ export const externalCharacters = [
   "argeliot",
   "arnaldo",
   "snake",
+  "muffinjobs",
 ];
 
 export default characterNames;
