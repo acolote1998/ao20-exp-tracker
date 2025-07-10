@@ -58,7 +58,7 @@ export const updateData = async () => {
   console.log(
     filteredCharsFromRanking.length === characterNames.length
       ? "✅ All expected characters were filtered"
-      : "⚠️ Some expected characters are missing from the filter"
+      : `⚠️ Some expected characters are missing from the filter. Filtered: ${filteredCharsFromRanking.length}, Total Char List: ${characterNames.length}`
   );
 
   console.log("🗑️ Deleting old data from today in DB...");
