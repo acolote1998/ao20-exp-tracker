@@ -2,6 +2,7 @@ import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
+import { BronzeBestKda } from "./icons/Badges/Bronze/BronzeBestKda";
 import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
 import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
 import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
@@ -142,6 +143,12 @@ const CharShowingDiffs = ({
         mx-auto
         overflow-hidden`}
     >
+      <div className="flex ">
+        <BronzeBestKda width={40} height={40} />
+        <GoldBestKda width={40} height={40} />
+        <GoldBestKda width={40} height={40} />
+        <GoldBestKda width={40} height={40} />
+      </div>
       {/* Name and Level-up */}
       <div className="relative">
         <h2 className="text-2xl font-semibold text-pink-500 text-center">
