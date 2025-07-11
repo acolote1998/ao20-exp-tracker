@@ -5,6 +5,7 @@ import { Death } from "./icons/Death";
 import { BronzeBestKda } from "./icons/Badges/Bronze/BronzeBestKda";
 import { BronzeMostKills } from "./icons/Badges/Bronze/BronzeMostKills";
 import { BronzeMostNpcs } from "./icons/Badges/Bronze/BronzeMostNpcs";
+import { BronzeMostXp } from "./icons/Badges/Bronze/BronzeMostXp";
 import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
 import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
 import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
@@ -150,7 +151,7 @@ const CharShowingDiffs = ({
         <BronzeBestKda width={40} height={40} />
         <BronzeMostKills width={40} height={40} />
         <BronzeMostNpcs width={40} height={40} />
-        <GoldBestKda width={40} height={40} />
+        <BronzeMostXp width={40} height={40} />
       </div>
       {/* Name and Level-up */}
       <div className="relative">
