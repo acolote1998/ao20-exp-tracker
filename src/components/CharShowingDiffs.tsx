@@ -6,7 +6,12 @@ import { BestKda } from "./icons/BestKda";
 import { MostKills } from "./icons/MostKills";
 import { MostNpcs } from "./icons/MostNpcs";
 import { MostExp } from "./icons/MostXp";
-import { getBadgesForCharacter } from "../supabase-api/useSupabase";
+import {
+  getBadgesForCharacter,
+  getBadgesByNameAndCharacterForToday,
+  insertDataToDb,
+  insertBadgeToDb,
+} from "../supabase-api/useSupabase";
 import { useEffect, useState } from "react";
 const CharShowingDiffs = ({
   exp_next_level_raw,
@@ -29,10 +34,16 @@ const CharShowingDiffs = ({
   const [mostNpcsAmount, setMostNpcsAmount] = useState<number>();
   const [mostXpAmount, setMostXpAmount] = useState<number>();
   const [bestKdAmount, setBestKdAmount] = useState<number>();
-
   useEffect(() => {
     const fetchBadges = async () => {
       if (best_kd) {
+        const bestKdTodayData = await getBadgesByNameAndCharacterForToday(
+          character_name,
+          "best_kd"
+        );
+        if (bestKdTodayData?.length === 0) {
+          await insertBadgeToDb("best_kd", character_name);
+        }
         const bestKdData = await getBadgesForCharacter(
           character_name,
           "best_kd"
@@ -40,6 +51,14 @@ const CharShowingDiffs = ({
         setBestKdAmount(bestKdData?.length);
       }
       if (most_kills) {
+        const bestMostKillsTodayData =
+          await getBadgesByNameAndCharacterForToday(
+            character_name,
+            "most_kills"
+          );
+        if (bestMostKillsTodayData?.length === 0) {
+          await insertBadgeToDb("most_kills", character_name);
+        }
         const mostKillsData = await getBadgesForCharacter(
           character_name,
           "most_kills"
@@ -47,6 +66,13 @@ const CharShowingDiffs = ({
         setMostKillsAmount(mostKillsData?.length);
       }
       if (most_npcs) {
+        const mostNpcsTodayData = await getBadgesByNameAndCharacterForToday(
+          character_name,
+          "most_npcs"
+        );
+        if (mostNpcsTodayData?.length === 0) {
+          await insertBadgeToDb("most_npcs", character_name);
+        }
         const mostNpcsData = await getBadgesForCharacter(
           character_name,
           "most_npcs"
@@ -54,6 +80,13 @@ const CharShowingDiffs = ({
         setMostNpcsAmount(mostNpcsData?.length);
       }
       if (most_xp) {
+        const mostXpTodaysData = await getBadgesByNameAndCharacterForToday(
+          character_name,
+          "most_xp"
+        );
+        if (mostXpTodaysData?.length === 0) {
+          await insertBadgeToDb("most_xp", character_name);
+        }
         const mostExpData = await getBadgesForCharacter(
           character_name,
           "most_xp"
