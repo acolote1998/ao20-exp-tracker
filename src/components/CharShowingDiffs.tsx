@@ -1,4 +1,4 @@
-import type { CharacterDiff, BadgeForCharacter } from "../types/types";
+import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
@@ -29,6 +29,7 @@ const CharShowingDiffs = ({
   const [mostNpcsAmount, setMostNpcsAmount] = useState<number>();
   const [mostXpAmount, setMostXpAmount] = useState<number>();
   const [bestKdAmount, setBestKdAmount] = useState<number>();
+
   useEffect(() => {
     const fetchBadges = async () => {
       if (best_kd) {
