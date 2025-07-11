@@ -141,6 +141,42 @@ const CharShowingDiffs = ({
       ? "grid-cols-3"
       : "grid-cols-4";
 
+  const getBestKdaIcon = (amount: number) => {
+    if (amount >= 55) return <MasterBestKda width={40} height={40} />;
+    if (amount >= 40) return <DiamondBestKda width={40} height={40} />;
+    if (amount >= 25) return <GoldBestKda width={40} height={40} />;
+    if (amount >= 10) return <SilverBestKda width={40} height={40} />;
+    if (amount > 0) return <BronzeBestKda width={40} height={40} />;
+    return null;
+  };
+
+  const getMostKillsIcon = (amount: number) => {
+    if (amount >= 55) return <MasterMostKills width={40} height={40} />;
+    if (amount >= 40) return <DiamondMostKills width={40} height={40} />;
+    if (amount >= 25) return <GoldMostKills width={40} height={40} />;
+    if (amount >= 10) return <SilverMostKills width={40} height={40} />;
+    if (amount > 0) return <BronzeMostKills width={40} height={40} />;
+    return null;
+  };
+
+  const getMostNpcsIcon = (amount: number) => {
+    if (amount >= 55) return <MasterMostNpcs width={48} height={48} />;
+    if (amount >= 40) return <DiamondMostNpcs width={48} height={48} />;
+    if (amount >= 25) return <GoldMostNpcs width={48} height={48} />;
+    if (amount >= 10) return <SilverMostNpcs width={48} height={48} />;
+    if (amount > 0) return <BronzeMostNpcs width={48} height={48} />;
+    return null;
+  };
+
+  const getMostXpIcon = (amount: number) => {
+    if (amount >= 55) return <MasterMostXp width={48} height={48} />;
+    if (amount >= 40) return <DiamondMostXp width={48} height={48} />;
+    if (amount >= 25) return <GoldMostExp width={48} height={48} />;
+    if (amount >= 10) return <SilverMostXp width={48} height={48} />;
+    if (amount > 0) return <BronzeMostXp width={48} height={48} />;
+    return null;
+  };
+
   return (
     <div
       className={`
@@ -159,36 +195,6 @@ const CharShowingDiffs = ({
         mx-auto
         overflow-hidden`}
     >
-      <div className="flex ">
-        <BronzeBestKda width={40} height={40} />
-        <BronzeMostKills width={40} height={40} />
-        <BronzeMostNpcs width={40} height={40} />
-        <BronzeMostXp width={40} height={40} />
-      </div>
-      <div className="flex ">
-        <SilverBestKda width={40} height={40} />
-        <SilverMostKills width={40} height={40} />
-        <SilverMostNpcs width={40} height={40} />
-        <SilverMostXp width={40} height={40} />
-      </div>
-      <div className="flex ">
-        <GoldBestKda width={40} height={40} />
-        <GoldMostKills width={40} height={40} />
-        <GoldMostNpcs width={40} height={40} />
-        <GoldMostExp width={40} height={40} />
-      </div>
-      <div className="flex ">
-        <DiamondBestKda width={40} height={40} />
-        <DiamondMostKills width={40} height={40} />
-        <DiamondMostNpcs width={40} height={40} />
-        <DiamondMostXp width={40} height={40} />
-      </div>
-      <div className="flex ">
-        <MasterBestKda width={40} height={40} />
-        <MasterMostKills width={40} height={40} />
-        <MasterMostNpcs width={40} height={40} />
-        <MasterMostXp width={40} height={40} />
-      </div>
       {/* Name and Level-up */}
       <div className="relative">
         <h2 className="text-2xl font-semibold text-pink-500 text-center">
@@ -297,28 +303,28 @@ const CharShowingDiffs = ({
             <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
               {best_kd && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <GoldBestKda width={40} height={40} />
+                  {bestKdAmount != null && getBestKdaIcon(bestKdAmount)}
                   <p className="font-normal text-sm mt-2">Mejor KD</p>
                   <p className="font-normal text-sm mt-2">x{bestKdAmount}</p>
                 </div>
               )}
               {most_kills && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <GoldMostKills width={40} height={40} />
+                  {mostKillsAmount != null && getMostKillsIcon(mostKillsAmount)}
                   <p className="font-normal text-sm mt-2">Mas Kills</p>
                   <p className="font-normal text-sm mt-2">x{mostKillsAmount}</p>
                 </div>
               )}
               {most_npcs && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <GoldMostNpcs width={48} height={48} />
+                  {mostNpcsAmount != null && getMostNpcsIcon(mostNpcsAmount)}
                   <p className="font-normal text-sm mt-2">Mas NPCs</p>
                   <p className="font-normal text-sm mt-2">x{mostNpcsAmount}</p>
                 </div>
               )}
               {most_xp && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <GoldMostExp width={48} height={48} />
+                  {mostXpAmount != null && getMostXpIcon(mostXpAmount)}
                   <p className="font-normal text-sm mt-2">Mas XP</p>
                   <p className="font-normal text-sm mt-2">x{mostXpAmount}</p>
                 </div>
