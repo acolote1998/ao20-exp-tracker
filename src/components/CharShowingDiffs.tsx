@@ -31,27 +31,34 @@ const CharShowingDiffs = ({
   const [bestKdAmunt, setBestKdAmount] = useState<number>();
   useEffect(() => {
     const fetchBadges = async () => {
-      //
-      const bestKdData = await getBadgesForCharacter(character_name, "best_kd");
-      setBestKdAmount(bestKdData?.length);
-      //
-      const mostKillsData = await getBadgesForCharacter(
-        character_name,
-        "most_kills"
-      );
-      setMostKillsAmount(mostKillsData?.length);
-      //
-      const mostNpcsData = await getBadgesForCharacter(
-        character_name,
-        "most_npcs"
-      );
-      setMostNpcsAmount(mostNpcsData?.length);
-      //
-      const mostExpData = await getBadgesForCharacter(
-        character_name,
-        "most_exp"
-      );
-      setMostXpAmount(mostExpData?.length);
+      if (best_kd) {
+        const bestKdData = await getBadgesForCharacter(
+          character_name,
+          "best_kd"
+        );
+        setBestKdAmount(bestKdData?.length);
+      }
+      if (most_kills) {
+        const mostKillsData = await getBadgesForCharacter(
+          character_name,
+          "most_kills"
+        );
+        setMostKillsAmount(mostKillsData?.length);
+      }
+      if (most_npcs) {
+        const mostNpcsData = await getBadgesForCharacter(
+          character_name,
+          "most_npcs"
+        );
+        setMostNpcsAmount(mostNpcsData?.length);
+      }
+      if (most_xp) {
+        const mostExpData = await getBadgesForCharacter(
+          character_name,
+          "most_xp"
+        );
+        setMostXpAmount(mostExpData?.length);
+      }
     };
     fetchBadges();
   }, [character_name]);
