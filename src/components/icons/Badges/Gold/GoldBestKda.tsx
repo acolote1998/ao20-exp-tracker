@@ -44,4 +44,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export { SvgComponent as BestKda };
+export { SvgComponent as GoldBestKda };

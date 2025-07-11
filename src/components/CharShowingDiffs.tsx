@@ -2,14 +2,13 @@ import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
-import { BestKda } from "./icons/BestKda";
-import { MostKills } from "./icons/MostKills";
-import { MostNpcs } from "./icons/MostNpcs";
-import { MostExp } from "./icons/MostXp";
+import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
+import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
+import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
+import { GoldMostExp } from "./icons/Badges/Gold/GoldMostXp";
 import {
   getBadgesForCharacter,
   getBadgesByNameAndCharacterForToday,
-  insertDataToDb,
   insertBadgeToDb,
 } from "../supabase-api/useSupabase";
 import { useEffect, useState } from "react";
@@ -251,28 +250,28 @@ const CharShowingDiffs = ({
             <div className="flex justify-around bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
               {best_kd && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <BestKda width={40} height={40} />
+                  <GoldBestKda width={40} height={40} />
                   <p className="font-normal text-sm mt-2">Mejor KD</p>
                   <p className="font-normal text-sm mt-2">x{bestKdAmount}</p>
                 </div>
               )}
               {most_kills && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <MostKills width={40} height={40} />
+                  <GoldMostKills width={40} height={40} />
                   <p className="font-normal text-sm mt-2">Mas Kills</p>
                   <p className="font-normal text-sm mt-2">x{mostKillsAmount}</p>
                 </div>
               )}
               {most_npcs && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <MostNpcs width={48} height={48} />
+                  <GoldMostNpcs width={48} height={48} />
                   <p className="font-normal text-sm mt-2">Mas NPCs</p>
                   <p className="font-normal text-sm mt-2">x{mostNpcsAmount}</p>
                 </div>
               )}
               {most_xp && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
-                  <MostExp width={48} height={48} />
+                  <GoldMostExp width={48} height={48} />
                   <p className="font-normal text-sm mt-2">Mas XP</p>
                   <p className="font-normal text-sm mt-2">x{mostXpAmount}</p>
                 </div>
