@@ -24,6 +24,10 @@ import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
 import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
 import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
 import { GoldMostExp } from "./icons/Badges/Gold/GoldMostXp";
+import { MasterBestKda } from "./icons/Badges/Master/MasterBestKda";
+import { MasterMostKills } from "./icons/Badges/Master/MasterMostKills";
+import { MasterMostXp } from "./icons/Badges/Master/MasterMostXp";
+import { MasterMostNpcs } from "./icons/Badges/Master/MasterMostNpcs";
 
 const CharShowingDiffs = ({
   exp_next_level_raw,
@@ -156,10 +160,10 @@ const CharShowingDiffs = ({
         overflow-hidden`}
     >
       <div className="flex ">
-        <DiamondBestKda width={40} height={40} />
-        <DiamondMostKills width={40} height={40} />
-        <DiamondMostNpcs width={40} height={40} />
-        <DiamondMostXp width={40} height={40} />
+        <MasterBestKda width={40} height={40} />
+        <MasterMostKills width={40} height={40} />
+        <MasterMostNpcs width={40} height={40} />
+        <MasterMostXp width={40} height={40} />
       </div>
       {/* Name and Level-up */}
       <div className="relative">
