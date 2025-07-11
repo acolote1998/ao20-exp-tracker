@@ -142,4 +142,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-export { SvgComponent as MostNpcs };
+export { SvgComponent as GoldMostNpcs };

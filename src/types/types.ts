@@ -57,3 +57,9 @@ export type CharacterDiff = {
   external?: boolean;
   exp_updated: number;
 };
+
+export type BadgeForCharacter = {
+  created_at: string;
+  name: string;
+  character_name: string;
+};
