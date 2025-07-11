@@ -92,6 +92,7 @@ const characterNames = [
   "katryna",
   "pontius",
   "elowen",
+  "tensa",
 ];
 
 export const externalCharacters = [
@@ -169,6 +170,7 @@ export const externalCharacters = [
   "katryna",
   "pontius",
   "elowen",
+  "tensa",
 ];
 
 export default characterNames;
