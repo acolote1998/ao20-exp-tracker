@@ -28,7 +28,7 @@ const CharShowingDiffs = ({
   const [mostKillsAmount, setMostKillsAmount] = useState<number>();
   const [mostNpcsAmount, setMostNpcsAmount] = useState<number>();
   const [mostXpAmount, setMostXpAmount] = useState<number>();
-  const [bestKdAmunt, setBestKdAmount] = useState<number>();
+  const [bestKdAmount, setBestKdAmount] = useState<number>();
   useEffect(() => {
     const fetchBadges = async () => {
       if (best_kd) {
@@ -219,24 +219,28 @@ const CharShowingDiffs = ({
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <BestKda width={40} height={40} />
                   <p className="font-normal text-sm mt-2">Mejor KD</p>
+                  <p className="font-normal text-sm mt-2">x{bestKdAmount}</p>
                 </div>
               )}
               {most_kills && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostKills width={40} height={40} />
                   <p className="font-normal text-sm mt-2">Mas Kills</p>
+                  <p className="font-normal text-sm mt-2">x{mostKillsAmount}</p>
                 </div>
               )}
               {most_npcs && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostNpcs width={48} height={48} />
                   <p className="font-normal text-sm mt-2">Mas NPCs</p>
+                  <p className="font-normal text-sm mt-2">x{mostNpcsAmount}</p>
                 </div>
               )}
               {most_xp && (
                 <div className="flex flex-col items-center justify-center align-middle mt-2">
                   <MostExp width={48} height={48} />
                   <p className="font-normal text-sm mt-2">Mas XP</p>
+                  <p className="font-normal text-sm mt-2">x{mostXpAmount}</p>
                 </div>
               )}
             </div>
