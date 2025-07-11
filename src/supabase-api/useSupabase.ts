@@ -1,5 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
-import type { CharacterFromAoApi, CharacterDB } from "../types/types";
+import type {
+  CharacterFromAoApi,
+  CharacterDB,
+  BadgeForCharacter,
+} from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmaW1pcWthaHZhcGNzcWJlZXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMTg2OTEsImV4cCI6MjA2NjY5NDY5MX0.phD5ByV4rVLXIgAUNE8nqt3zZG3cXE5THS-7todbqfk";
@@ -20,6 +24,22 @@ export const getCharDataFromDbFromToday =
     }
     return data;
   };
+
+export const getBadgesForCharacter = async (
+  characterName: string,
+  badgeName: string
+): Promise<Array<BadgeForCharacter> | null> => {
+  const { data, error } = await supabase
+    .from("badges")
+    .select("*")
+    .eq("character_name", characterName)
+    .eq("name", badgeName);
+  if (error) {
+    console.error("Error fetching badges for character:", error);
+    return null;
+  }
+  return data;
+};
 
 export const getCharDataFromDbFromYesterday =
   async (): Promise<Array<CharacterDB> | null> => {
