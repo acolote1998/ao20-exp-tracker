@@ -6,6 +6,10 @@ import { BronzeBestKda } from "./icons/Badges/Bronze/BronzeBestKda";
 import { BronzeMostKills } from "./icons/Badges/Bronze/BronzeMostKills";
 import { BronzeMostNpcs } from "./icons/Badges/Bronze/BronzeMostNpcs";
 import { BronzeMostXp } from "./icons/Badges/Bronze/BronzeMostXp";
+import { SilverMostXp } from "./icons/Badges/Silver/SilverMostXp";
+import { SilverBestKda } from "./icons/Badges/Silver/SilverBestKda";
+import { SilverMostKills } from "./icons/Badges/Silver/SilverMostKills";
+import { SilverMostNpcs } from "./icons/Badges/Silver/SilverMostNpcs";
 import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
 import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
 import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
@@ -148,10 +152,10 @@ const CharShowingDiffs = ({
         overflow-hidden`}
     >
       <div className="flex ">
-        <BronzeBestKda width={40} height={40} />
-        <BronzeMostKills width={40} height={40} />
-        <BronzeMostNpcs width={40} height={40} />
-        <BronzeMostXp width={40} height={40} />
+        <SilverBestKda width={40} height={40} />
+        <SilverMostKills width={40} height={40} />
+        <SilverMostNpcs width={40} height={40} />
+        <SilverMostXp width={40} height={40} />
       </div>
       {/* Name and Level-up */}
       <div className="relative">

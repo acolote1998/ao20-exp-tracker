@@ -1,0 +1,100 @@
+import type { SVGProps } from "react";
+
+const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlSpace="preserve"
+    width={200}
+    height={200}
+    viewBox="0 0 511.992 511.992"
+    {...props}
+  >
+    <defs>
+      <radialGradient id="silverGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="#ffffff" /> {/* bright silver center */}
+        <stop offset="40%" stopColor="#c0c0c0" /> {/* mid silver */}
+        <stop offset="70%" stopColor="#a0a0a0" /> {/* strong silver */}
+        <stop offset="100%" stopColor="#707070" /> {/* dark silver edge */}
+      </radialGradient>
+
+      <linearGradient id="silverHighlight" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#fff" stopOpacity="0.7" />
+        <stop offset="20%" stopColor="#fff" stopOpacity="0" />
+        <stop offset="80%" stopColor="#d0d0d0" stopOpacity="0" />
+        <stop offset="100%" stopColor="#d0d0d0" stopOpacity="0.5" />
+      </linearGradient>
+
+      <radialGradient id="silverShine" cx="70%" cy="30%" r="20%">
+        <stop offset="0%" stopColor="#fff" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="#fff" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+
+    <path
+      d="M181.552 371.275c0-2.828-1.125-5.546-3.125-7.546l-30.171-30.172c-4.164-4.171-10.922-4.171-15.086 0l-95.959 95.968c-4.164 4.156-4.164 10.906 0 15.078l30.171 30.171c4.164 4.155 10.921 4.155 15.085 0l95.959-95.968a10.639 10.639 0 0 0 3.126-7.531z"
+      style={{
+        fill: "url(#silverGradient)",
+        stroke: "#606060",
+        strokeWidth: 1.2,
+      }}
+    />
+
+    <path
+      d="M490.804 96.617a10.773 10.773 0 0 0 2.844-5.148l18.078-78.405c.812-3.586-.266-7.336-2.859-9.938s-6.359-3.68-9.938-2.852l-78.404 18.062a10.632 10.632 0 0 0-5.141 2.852L140.717 295.84c-4.164 4.172-4.164 10.922 0 15.094l60.335 60.342a10.662 10.662 0 0 0 15.085 0L490.804 96.617z"
+      style={{
+        fill: "#c0c0c0", // base silver
+        stroke: "#707070",
+        strokeWidth: 0.7,
+      }}
+    />
+
+    <path
+      d="M508.866 3.126a10.654 10.654 0 0 0-9.938-2.852l-78.404 18.062a10.632 10.632 0 0 0-5.141 2.852L140.717 295.84c-4.164 4.172-4.164 10.922 0 15.094l60.335 60.342a10.662 10.662 0 0 0 15.085 0L490.804 96.617a10.773 10.773 0 0 0 2.844-5.148l18.078-78.405a10.718 10.718 0 0 0-2.86-9.938zm-7.547 7.539L483.257 89.07 208.598 363.729l-60.342-60.343L422.915 28.735l78.404-18.07z"
+      style={{
+        opacity: 0.3,
+        fill: "url(#silverHighlight)",
+      }}
+    />
+
+    <path
+      d="M170.88 341.104a10.68 10.68 0 0 1 0-15.093l193.238-193.224c4.172-4.164 10.922-4.164 15.078 0 4.172 4.164 4.172 10.922 0 15.086l-193.23 193.23c-4.164 4.158-10.914 4.158-15.086.001z"
+      style={{
+        fill: "#a0a0a0", // medium silver tone
+        stroke: "#606060",
+        strokeWidth: 1,
+      }}
+    />
+
+    <path
+      d="M77.249 389.478h90.506l10.672-10.672a10.643 10.643 0 0 0 2.656-10.656H98.584l-21.335 21.328zM143.842 413.4H53.328l-16.117 16.125a10.625 10.625 0 0 0-2.859 5.203h88.155l21.335-21.328z"
+      style={{
+        fill: "#909090",
+        stroke: "#606060",
+        strokeWidth: 0.8,
+      }}
+    />
+
+    <path
+      d="M253.848 393.9 118.084 258.138c-4.164-4.164-10.914-4.164-15.078 0l-22.632 22.624c-4.164 4.172-4.164 10.922 0 15.078l135.763 135.764a10.662 10.662 0 0 0 15.086 0l22.625-22.625c4.163-4.157 4.163-10.922 0-15.079zM85.327 469.321c0-11.391-4.438-22.108-12.492-30.171-16.64-16.641-43.702-16.641-60.342 0C4.438 447.212.001 457.93.001 469.321c0 11.39 4.438 22.108 12.492 30.171 8.062 8.062 18.773 12.5 30.171 12.5s22.109-4.438 30.171-12.5c8.055-8.062 12.492-18.781 12.492-30.171z"
+      style={{
+        fill: "url(#silverGradient)",
+        stroke: "#606060",
+        strokeWidth: 1,
+      }}
+    />
+
+    <ellipse
+      cx={42.664}
+      cy={469.316}
+      rx={10.664}
+      ry={10.671}
+      style={{
+        fill: "url(#silverShine)",
+        stroke: "#606060",
+        strokeWidth: 0.5,
+      }}
+    />
+  </svg>
+);
+
+export { SvgComponent as SilverMostKills };
