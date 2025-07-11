@@ -28,7 +28,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     />
     {/* Linear gradient adaptado a tonos rosados/fucsias */}
     <linearGradient
-      id="a"
+      id="aMaster"
       x1={371.308}
       x2={-26.587}
       y1={97.281}
@@ -49,7 +49,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
       />
     </linearGradient>
     <path
-      fill="url(#a)"
+      fill="url(#aMaster)"
       d="M129.536 35.233h147.942l24.04 35.087c2.444 3.568 8.002 2.232 8.558-2.057l4.282-33.03h30.595c7.175 0 12.992 5.817 12.992 12.992v306.78c0 7.175-5.817 12.992-12.992 12.992H128.698c-9.49 0-17.183-7.693-17.183-17.184V53.255c0-9.953 8.068-18.022 18.021-18.022z"
     />
     {/* Gris neutro original sin cambio */}

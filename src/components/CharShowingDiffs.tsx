@@ -160,6 +160,30 @@ const CharShowingDiffs = ({
         overflow-hidden`}
     >
       <div className="flex ">
+        <BronzeBestKda width={40} height={40} />
+        <BronzeMostKills width={40} height={40} />
+        <BronzeMostNpcs width={40} height={40} />
+        <BronzeMostXp width={40} height={40} />
+      </div>
+      <div className="flex ">
+        <SilverBestKda width={40} height={40} />
+        <SilverMostKills width={40} height={40} />
+        <SilverMostNpcs width={40} height={40} />
+        <SilverMostXp width={40} height={40} />
+      </div>
+      <div className="flex ">
+        <GoldBestKda width={40} height={40} />
+        <GoldMostKills width={40} height={40} />
+        <GoldMostNpcs width={40} height={40} />
+        <GoldMostExp width={40} height={40} />
+      </div>
+      <div className="flex ">
+        <DiamondBestKda width={40} height={40} />
+        <DiamondMostKills width={40} height={40} />
+        <DiamondMostNpcs width={40} height={40} />
+        <DiamondMostXp width={40} height={40} />
+      </div>
+      <div className="flex ">
         <MasterBestKda width={40} height={40} />
         <MasterMostKills width={40} height={40} />
         <MasterMostNpcs width={40} height={40} />

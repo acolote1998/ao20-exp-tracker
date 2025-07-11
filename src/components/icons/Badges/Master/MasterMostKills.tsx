@@ -9,7 +9,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <defs>
-      <radialGradient id="goldGradient" cx="50%" cy="50%" r="50%">
+      <radialGradient id="masterGradient" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stopColor="#f9c6e7" /> {/* Very light pink center */}
         <stop offset="40%" stopColor="#fa16d4" /> {/* Vibrant pink mid */}
         <stop offset="70%" stopColor="#b21092" /> {/* Strong magenta */}
@@ -32,7 +32,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     <path
       d="M181.552 371.275c0-2.828-1.125-5.546-3.125-7.546l-30.171-30.172c-4.164-4.171-10.922-4.171-15.086 0l-95.959 95.968c-4.164 4.156-4.164 10.906 0 15.078l30.171 30.171c4.164 4.155 10.921 4.155 15.085 0l95.959-95.968a10.639 10.639 0 0 0 3.126-7.531z"
       style={{
-        fill: "url(#goldGradient)",
+        fill: "url(#masterGradient)",
         stroke: "#7a0a62",
         strokeWidth: 1.2,
       }}
@@ -76,7 +76,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     <path
       d="M253.848 393.9 118.084 258.138c-4.164-4.164-10.914-4.164-15.078 0l-22.632 22.624c-4.164 4.172-4.164 10.922 0 15.078l135.763 135.764a10.662 10.662 0 0 0 15.086 0l22.625-22.625c4.163-4.157 4.163-10.922 0-15.079zM85.327 469.321c0-11.391-4.438-22.108-12.492-30.171-16.64-16.641-43.702-16.641-60.342 0C4.438 447.212.001 457.93.001 469.321c0 11.39 4.438 22.108 12.492 30.171 8.062 8.062 18.773 12.5 30.171 12.5s22.109-4.438 30.171-12.5c8.055-8.062 12.492-18.781 12.492-30.171z"
       style={{
-        fill: "url(#goldGradient)",
+        fill: "url(#masterGradient)",
         stroke: "#7a0a62",
         strokeWidth: 1,
       }}
