@@ -1,4 +1,4 @@
-import type { CharacterDiff } from "../types/types";
+import type { CharacterDiff, BadgeForCharacter } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
 import { Death } from "./icons/Death";
@@ -6,6 +6,8 @@ import { BestKda } from "./icons/BestKda";
 import { MostKills } from "./icons/MostKills";
 import { MostNpcs } from "./icons/MostNpcs";
 import { MostExp } from "./icons/MostXp";
+import { getBadgesForCharacter } from "../supabase-api/useSupabase";
+import { useEffect, useState } from "react";
 const CharShowingDiffs = ({
   exp_next_level_raw,
   character_name,
@@ -23,10 +25,39 @@ const CharShowingDiffs = ({
   most_xp,
   exp_percentage_updated,
 }: CharacterDiff) => {
+  const [mostKillsAmount, setMostKillsAmount] = useState<number>();
+  const [mostNpcsAmount, setMostNpcsAmount] = useState<number>();
+  const [mostXpAmount, setMostXpAmount] = useState<number>();
+  const [bestKdAmunt, setBestKdAmount] = useState<number>();
+  useEffect(() => {
+    const fetchBadges = async () => {
+      //
+      const bestKdData = await getBadgesForCharacter(character_name, "best_kd");
+      setBestKdAmount(bestKdData?.length);
+      //
+      const mostKillsData = await getBadgesForCharacter(
+        character_name,
+        "most_kills"
+      );
+      setMostKillsAmount(mostKillsData?.length);
+      //
+      const mostNpcsData = await getBadgesForCharacter(
+        character_name,
+        "most_npcs"
+      );
+      setMostNpcsAmount(mostNpcsData?.length);
+      //
+      const mostExpData = await getBadgesForCharacter(
+        character_name,
+        "most_exp"
+      );
+      setMostXpAmount(mostExpData?.length);
+    };
+    fetchBadges();
+  }, [character_name]);
+
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
-
   const leveledUp = levelDiff > 0;
-
   const today = new Date();
   const levelUp = new Date(today);
   const amountOfDaysOfTraining = Math.ceil(
