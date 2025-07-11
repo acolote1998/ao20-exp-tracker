@@ -61,7 +61,7 @@ const CharShowingDiffs = ({
       }
     };
     fetchBadges();
-  }, [character_name]);
+  }, [character_name, best_kd, most_kills, most_npcs, most_xp]);
 
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
