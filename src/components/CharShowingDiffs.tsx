@@ -1,3 +1,9 @@
+import {
+  getBadgesForCharacter,
+  getBadgesByNameAndCharacterForToday,
+  insertBadgeToDb,
+} from "../supabase-api/useSupabase";
+import { useEffect, useState } from "react";
 import type { CharacterDiff } from "../types/types";
 import { ArrowUpCircle } from "lucide-react"; // Optional: only if using icons
 import { Sword } from "./icons/Sword";
@@ -6,6 +12,10 @@ import { BronzeBestKda } from "./icons/Badges/Bronze/BronzeBestKda";
 import { BronzeMostKills } from "./icons/Badges/Bronze/BronzeMostKills";
 import { BronzeMostNpcs } from "./icons/Badges/Bronze/BronzeMostNpcs";
 import { BronzeMostXp } from "./icons/Badges/Bronze/BronzeMostXp";
+import { DiamondBestKda } from "./icons/Badges/Diamond/DiamondBestKd";
+import { DiamondMostKills } from "./icons/Badges/Diamond/DiamondMostKills";
+import { DiamondMostXp } from "./icons/Badges/Diamond/DiamondMostXp";
+import { DiamondMostNpcs } from "./icons/Badges/Diamond/DiamondMostNpcs";
 import { SilverMostXp } from "./icons/Badges/Silver/SilverMostXp";
 import { SilverBestKda } from "./icons/Badges/Silver/SilverBestKda";
 import { SilverMostKills } from "./icons/Badges/Silver/SilverMostKills";
@@ -14,12 +24,6 @@ import { GoldBestKda } from "./icons/Badges/Gold/GoldBestKda";
 import { GoldMostKills } from "./icons/Badges/Gold/GoldMostKills";
 import { GoldMostNpcs } from "./icons/Badges/Gold/GoldMostNpcs";
 import { GoldMostExp } from "./icons/Badges/Gold/GoldMostXp";
-import {
-  getBadgesForCharacter,
-  getBadgesByNameAndCharacterForToday,
-  insertBadgeToDb,
-} from "../supabase-api/useSupabase";
-import { useEffect, useState } from "react";
 
 const CharShowingDiffs = ({
   exp_next_level_raw,
@@ -152,10 +156,10 @@ const CharShowingDiffs = ({
         overflow-hidden`}
     >
       <div className="flex ">
-        <SilverBestKda width={40} height={40} />
-        <SilverMostKills width={40} height={40} />
-        <SilverMostNpcs width={40} height={40} />
-        <SilverMostXp width={40} height={40} />
+        <DiamondBestKda width={40} height={40} />
+        <DiamondMostKills width={40} height={40} />
+        <DiamondMostNpcs width={40} height={40} />
+        <DiamondMostXp width={40} height={40} />
       </div>
       {/* Name and Level-up */}
       <div className="relative">
