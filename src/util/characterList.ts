@@ -94,6 +94,7 @@ const characterNames = [
   "elowen",
   "tensa",
   "asleif",
+  "venecotumbero",
 ];
 
 export const externalCharacters = [
@@ -171,6 +172,7 @@ export const externalCharacters = [
   "pontius",
   "elowen",
   "tensa",
+  "venecotumbero",
 ];
 
 export default characterNames;
