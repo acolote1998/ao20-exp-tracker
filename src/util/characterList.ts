@@ -93,6 +93,7 @@ const characterNames = [
   "pontius",
   "elowen",
   "tensa",
+  "asleif",
 ];
 
 export const externalCharacters = [
