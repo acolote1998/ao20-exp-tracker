@@ -96,7 +96,6 @@ const characterNames = [
 ];
 
 export const externalCharacters = [
-  "picton",
   "kaeshi",
   "kaori",
   "unstoppable",
