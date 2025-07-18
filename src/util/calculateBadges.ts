@@ -16,7 +16,8 @@ export const calculateBadges = (chars: CharacterDiff[]) => {
   let most_npcs_name = chars[0].character_name;
 
   let most_faction_score = 0;
-  let most_faction_score_name = chars[0].character_name;
+  // let most_faction_score_name = chars[0].character_name;
+  let most_faction_score_name = "";
 
   chars.forEach((char) => {
     if (!externalCharacters.includes(char.character_name.toLocaleLowerCase())) {
@@ -44,7 +45,7 @@ export const calculateBadges = (chars: CharacterDiff[]) => {
         most_npcs = char.killed_npcs;
         most_npcs_name = char.character_name;
       }
-      if (char.faction_score >= most_faction_score) {
+      if (char.faction_score >= most_faction_score && char.faction_score > 0) {
         most_faction_score = char.faction_score;
         most_faction_score_name = char.character_name;
       }
