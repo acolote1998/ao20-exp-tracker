@@ -34,6 +34,7 @@ export type CharacterDB = {
   race_name: string;
   total_kills: number;
   updated_at: string; // assuming `todayDate` is an ISO string (e.g. from `new Date().toISOString()`)
+  faction_score: number;
 };
 
 export type CharacterDiff = {
@@ -54,8 +55,10 @@ export type CharacterDiff = {
   best_kd?: boolean;
   most_xp?: boolean;
   most_npcs?: boolean;
+  most_faction_score?: boolean;
   external?: boolean;
   exp_updated: number;
+  faction_score: number;
 };
 
 export type BadgeForCharacter = {

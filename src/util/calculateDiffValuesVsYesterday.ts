@@ -49,6 +49,7 @@ export const calculateDiffValuesVsYesterday = (
       race_name: c.race_name,
       total_kills: c.total_kills - (y?.total_kills ?? 0),
       external: isExternal(),
+      faction_score: c.faction_score - (y?.faction_score ?? 0),
     };
   });
   return diffArray;
