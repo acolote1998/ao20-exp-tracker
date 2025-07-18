@@ -15,6 +15,9 @@ export const calculateBadges = (chars: CharacterDiff[]) => {
   let most_npcs = 0;
   let most_npcs_name = chars[0].character_name;
 
+  let most_faction_score = 0;
+  let most_faction_score_name = chars[0].character_name;
+
   chars.forEach((char) => {
     if (!externalCharacters.includes(char.character_name.toLocaleLowerCase())) {
       if (char.total_kills >= most_kills) {
@@ -41,12 +44,12 @@ export const calculateBadges = (chars: CharacterDiff[]) => {
         most_npcs = char.killed_npcs;
         most_npcs_name = char.character_name;
       }
+      if (char.faction_score >= most_faction_score) {
+        most_faction_score = char.faction_score;
+        most_faction_score_name = char.character_name;
+      }
     }
   });
-  //   console.log(best_kd_name, "Best KD");
-  //   console.log(most_kills_name, "Most Kills");
-  //   console.log(most_npcs_name, "Most NPCs");
-  //   console.log(most_xp_name, "Most XP");
 
   chars.forEach((char) => {
     if (!externalCharacters.includes(char.character_name.toLocaleLowerCase())) {
@@ -64,6 +67,12 @@ export const calculateBadges = (chars: CharacterDiff[]) => {
         char.character_name.toLowerCase() === best_kd_name.toLowerCase()
       ) {
         char.best_kd = true;
+      }
+      if (
+        char.character_name.toLowerCase() ===
+        most_faction_score_name.toLowerCase()
+      ) {
+        char.most_faction_score = true;
       }
     }
   });

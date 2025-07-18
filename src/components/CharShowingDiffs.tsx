@@ -28,6 +28,11 @@ import { MasterBestKda } from "./icons/Badges/Master/MasterBestKda";
 import { MasterMostKills } from "./icons/Badges/Master/MasterMostKills";
 import { MasterMostXp } from "./icons/Badges/Master/MasterMostXp";
 import { MasterMostNpcs } from "./icons/Badges/Master/MasterMostNpcs";
+import { BronzeBestFactionScore } from "./icons/Badges/Bronze/BronzeBestFactionScore";
+import { SilverBestFactionScore } from "./icons/Badges/Silver/SilverBestFactionScore";
+import { GoldBestFactionScore } from "./icons/Badges/Gold/GoldBestFactionScore";
+import { DiamondBestFactionScore } from "./icons/Badges/Diamond/DiamondBestFactionScore";
+import { MasterBestFactionScore } from "./icons/Badges/Master/MasterBestFactionScore";
 
 const CharShowingDiffs = ({
   exp_next_level_raw,
@@ -45,11 +50,15 @@ const CharShowingDiffs = ({
   most_npcs,
   most_xp,
   exp_percentage_updated,
+  most_faction_score,
+  faction_score,
 }: CharacterDiff) => {
   const [mostKillsAmount, setMostKillsAmount] = useState<number>();
   const [mostNpcsAmount, setMostNpcsAmount] = useState<number>();
   const [mostXpAmount, setMostXpAmount] = useState<number>();
   const [bestKdAmount, setBestKdAmount] = useState<number>();
+  const [mostFactionScoreAmount, setMostFactionScoreAmount] =
+    useState<number>();
   useEffect(() => {
     const fetchBadges = async () => {
       if (best_kd) {
@@ -109,9 +118,31 @@ const CharShowingDiffs = ({
         );
         setMostXpAmount(mostExpData?.length);
       }
+      if (most_faction_score) {
+        const mostFactionScoreTodaysData =
+          await getBadgesByNameAndCharacterForToday(
+            character_name,
+            "most_faction_score"
+          );
+        if (mostFactionScoreTodaysData?.length === 0) {
+          await insertBadgeToDb("most_faction_score", character_name);
+        }
+        const mostFactionScoreData = await getBadgesForCharacter(
+          character_name,
+          "most_faction_score"
+        );
+        setMostFactionScoreAmount(mostFactionScoreData?.length);
+      }
     };
     fetchBadges();
-  }, [character_name, best_kd, most_kills, most_npcs, most_xp]);
+  }, [
+    character_name,
+    best_kd,
+    most_kills,
+    most_npcs,
+    most_xp,
+    most_faction_score,
+  ]);
 
   const kd = deaths === 0 ? total_kills : total_kills / deaths;
   const leveledUp = levelDiff > 0;
@@ -174,6 +205,15 @@ const CharShowingDiffs = ({
     if (amount >= 25) return <GoldMostExp width={48} height={48} />;
     if (amount >= 10) return <SilverMostXp width={48} height={48} />;
     if (amount > 0) return <BronzeMostXp width={48} height={48} />;
+    return null;
+  };
+
+  const getMostFactionScoreIcon = (amount: number) => {
+    if (amount >= 55) return <MasterBestFactionScore width={48} height={48} />;
+    if (amount >= 40) return <DiamondBestFactionScore width={48} height={48} />;
+    if (amount >= 25) return <GoldBestFactionScore width={48} height={48} />;
+    if (amount >= 10) return <SilverBestFactionScore width={48} height={48} />;
+    if (amount > 0) return <BronzeBestFactionScore width={48} height={48} />;
     return null;
   };
 
@@ -247,9 +287,9 @@ const CharShowingDiffs = ({
           </span>
         </div>
       </div>
-      {/* Kills / Deaths / KD */}
+      {/* Kills / Deaths / KD / PF */}
       <div>
-        <div className="grid grid-cols-3 bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300 items-center justify-center pt-2 pb-2">
+        <div className="grid grid-cols-4 bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300 items-center justify-center pt-2 pb-2">
           <div className="flex justify-center">
             <Sword width={24} height={24} />
           </div>
@@ -257,13 +297,15 @@ const CharShowingDiffs = ({
             <Death width={20} height={20} />
           </div>
           <p>KD</p>
+          <p>PF</p>
         </div>
-        <div className="grid grid-cols-3 bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
+        <div className="grid grid-cols-4 bg-gray-600 rounded-b-md text-center py-1 text-lg font-medium">
           <p>{total_kills}</p>
           <p>{deaths}</p>
           <p className={kd >= 1 ? "text-green-300 font-bold" : "text-gray-300"}>
             {kd.toFixed(2)}
           </p>
+          <p>{faction_score}</p>
         </div>
       </div>
       {/* Level / EXP / % / NPCs*/}
@@ -294,7 +336,11 @@ const CharShowingDiffs = ({
         </div>
       </div>
       <div>
-        {(best_kd || most_kills || most_npcs || most_xp) && (
+        {(best_kd ||
+          most_kills ||
+          most_npcs ||
+          most_xp ||
+          most_faction_score) && (
           <>
             <div className="flex bg-gray-700 rounded-t-md text-center text-md font-bold text-gray-300 justify-center">
               <p>Medallas</p>
@@ -327,6 +373,16 @@ const CharShowingDiffs = ({
                   {mostXpAmount != null && getMostXpIcon(mostXpAmount)}
                   <p className="font-normal text-sm mt-2">Mas XP</p>
                   <p className="font-normal text-sm mt-2">x{mostXpAmount}</p>
+                </div>
+              )}
+              {most_faction_score && (
+                <div className="flex flex-col items-center justify-center align-middle mt-2">
+                  {mostFactionScoreAmount != null &&
+                    getMostFactionScoreIcon(mostFactionScoreAmount)}
+                  <p className="font-normal text-sm mt-2">Mas PF</p>
+                  <p className="font-normal text-sm mt-2">
+                    x{mostFactionScoreAmount}
+                  </p>
                 </div>
               )}
             </div>
