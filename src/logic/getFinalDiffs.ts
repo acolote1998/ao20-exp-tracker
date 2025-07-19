@@ -4,6 +4,7 @@ import {
   getCharDataFromDbFromYesterday,
   getCharDataFromDbFromToday,
   insertDataToDb,
+  deleteOldCharsDataFromDb,
 } from "../supabase-api/useSupabase.js";
 import type {
   CharacterDiff,
@@ -37,6 +38,14 @@ const retryAsync = async <T>(
 };
 
 export const updateData = async () => {
+  console.log("🗑️ Deleting char data older than a week in DB...");
+  const oldCharsDeleted = await retryAsync(deleteOldCharsDataFromDb, 3, 60000);
+  console.log(
+    oldCharsDeleted && oldCharsDeleted > 0
+      ? `✅ ${oldCharsDeleted} rows deleted`
+      : "⚠️ No rows deleted"
+  );
+
   const charsFromRanking: CharacterFromAoApi[] = await retryAsync(
     getRankingFromAO20,
     3,

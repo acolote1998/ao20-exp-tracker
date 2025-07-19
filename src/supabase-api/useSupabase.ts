@@ -116,6 +116,26 @@ export const deleteCharDataFromDbFromToday = async () => {
   return data.length; //returns the amount of deleted rows
 };
 
+export const deleteOldCharsDataFromDb = async () => {
+  const today = new Date();
+  const cutoffDate = new Date(today);
+  cutoffDate.setDate(today.getDate() - 7); // go 7 days back
+  const formattedCutoffDate = cutoffDate.toISOString().split("T")[0]; // YYYY-MM-DD
+
+  const { data, error } = await supabase
+    .from("characters")
+    .delete()
+    .lt("updated_at", formattedCutoffDate) // less than 7 days ago
+    .select();
+
+  if (error) {
+    console.error("Error deleting old characters:", error);
+    return null;
+  }
+
+  return data.length; // returns number of deleted rows
+};
+
 export const insertDataToDb = async (
   charsToInsert: Array<CharacterFromAoApi>
 ) => {
