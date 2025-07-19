@@ -134,6 +134,7 @@ export const insertDataToDb = async (
     race_name: char.race_name,
     total_kills: char.total_kills,
     updated_at: todayDate,
+    faction_score: char.faction_score,
   }));
   const { data, error } = await supabase
     .from("characters")
