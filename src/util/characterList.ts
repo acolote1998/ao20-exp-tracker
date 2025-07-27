@@ -1,6 +1,6 @@
 const characterNames = [
   "loy",
-  "pepe ramon",
+  "emma",
   "heartie",
   "kerpredox",
   "fak",
