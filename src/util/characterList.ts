@@ -15,7 +15,6 @@ const characterNames = [
   "tan tej",
   "bonham",
   "ru thuka",
-  "merli",
   "picton",
   "kaeshi",
   "poxito",
@@ -93,7 +92,6 @@ const characterNames = [
   "bananazo",
   "asleif",
   "venecotumbero",
-  "gengis kan",
   "yugi",
   "xdanielx",
 ];
