@@ -98,6 +98,7 @@ const characterNames = [
 ];
 
 export const externalCharacters = [
+  "enza",
   "kaeshi",
   "kaori",
   "unstoppable",
