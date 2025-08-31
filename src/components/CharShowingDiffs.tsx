@@ -173,46 +173,46 @@ const CharShowingDiffs = ({
       : "grid-cols-4";
 
   const getBestKdaIcon = (amount: number) => {
-    if (amount >= 55) return <MasterBestKda width={40} height={40} />;
-    if (amount >= 40) return <DiamondBestKda width={40} height={40} />;
-    if (amount >= 25) return <GoldBestKda width={40} height={40} />;
-    if (amount >= 10) return <SilverBestKda width={40} height={40} />;
+    if (amount >= 65) return <MasterBestKda width={40} height={40} />;
+    if (amount >= 50) return <DiamondBestKda width={40} height={40} />;
+    if (amount >= 35) return <GoldBestKda width={40} height={40} />;
+    if (amount >= 20) return <SilverBestKda width={40} height={40} />;
     if (amount > 0) return <BronzeBestKda width={40} height={40} />;
     return null;
   };
 
   const getMostKillsIcon = (amount: number) => {
-    if (amount >= 55) return <MasterMostKills width={40} height={40} />;
-    if (amount >= 40) return <DiamondMostKills width={40} height={40} />;
-    if (amount >= 25) return <GoldMostKills width={40} height={40} />;
-    if (amount >= 10) return <SilverMostKills width={40} height={40} />;
+    if (amount >= 65) return <MasterMostKills width={40} height={40} />;
+    if (amount >= 50) return <DiamondMostKills width={40} height={40} />;
+    if (amount >= 35) return <GoldMostKills width={40} height={40} />;
+    if (amount >= 20) return <SilverMostKills width={40} height={40} />;
     if (amount > 0) return <BronzeMostKills width={40} height={40} />;
     return null;
   };
 
   const getMostNpcsIcon = (amount: number) => {
-    if (amount >= 55) return <MasterMostNpcs width={48} height={48} />;
-    if (amount >= 40) return <DiamondMostNpcs width={48} height={48} />;
-    if (amount >= 25) return <GoldMostNpcs width={48} height={48} />;
-    if (amount >= 10) return <SilverMostNpcs width={48} height={48} />;
+    if (amount >= 65) return <MasterMostNpcs width={48} height={48} />;
+    if (amount >= 50) return <DiamondMostNpcs width={48} height={48} />;
+    if (amount >= 35) return <GoldMostNpcs width={48} height={48} />;
+    if (amount >= 20) return <SilverMostNpcs width={48} height={48} />;
     if (amount > 0) return <BronzeMostNpcs width={48} height={48} />;
     return null;
   };
 
   const getMostXpIcon = (amount: number) => {
-    if (amount >= 55) return <MasterMostXp width={48} height={48} />;
-    if (amount >= 40) return <DiamondMostXp width={48} height={48} />;
-    if (amount >= 25) return <GoldMostExp width={48} height={48} />;
-    if (amount >= 10) return <SilverMostXp width={48} height={48} />;
+    if (amount >= 65) return <MasterMostXp width={48} height={48} />;
+    if (amount >= 50) return <DiamondMostXp width={48} height={48} />;
+    if (amount >= 35) return <GoldMostExp width={48} height={48} />;
+    if (amount >= 20) return <SilverMostXp width={48} height={48} />;
     if (amount > 0) return <BronzeMostXp width={48} height={48} />;
     return null;
   };
 
   const getMostFactionScoreIcon = (amount: number) => {
-    if (amount >= 55) return <MasterBestFactionScore width={48} height={48} />;
-    if (amount >= 40) return <DiamondBestFactionScore width={48} height={48} />;
-    if (amount >= 25) return <GoldBestFactionScore width={48} height={48} />;
-    if (amount >= 10) return <SilverBestFactionScore width={48} height={48} />;
+    if (amount >= 65) return <MasterBestFactionScore width={48} height={48} />;
+    if (amount >= 50) return <DiamondBestFactionScore width={48} height={48} />;
+    if (amount >= 35) return <GoldBestFactionScore width={48} height={48} />;
+    if (amount >= 20) return <SilverBestFactionScore width={48} height={48} />;
     if (amount > 0) return <BronzeBestFactionScore width={48} height={48} />;
     return null;
   };
