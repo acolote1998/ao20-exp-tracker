@@ -1,7 +1,7 @@
 const characterNames = [
   "heartie",
   "loy",
-  "emma",
+  "karz",
   "kerpredox",
   "fak",
   "braka",
@@ -26,7 +26,6 @@ const characterNames = [
   "plak",
   "empty",
   "lana",
-  "karz",
   "sumbald",
   "eleu",
   "musashi miyamoto",
@@ -95,9 +94,11 @@ const characterNames = [
   "venecotumbero",
   "yugi",
   "xdanielx",
+  "popper",
 ];
 
 export const externalCharacters = [
+  "popper",
   "enza",
   "kaeshi",
   "kaori",
@@ -107,7 +108,6 @@ export const externalCharacters = [
   "plak",
   "empty",
   "lana",
-  "karz",
   "sumbald",
   "eleu",
   "musashi miyamoto",
