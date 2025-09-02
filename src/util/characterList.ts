@@ -5,7 +5,6 @@ const characterNames = [
   "kerpredox",
   "fak",
   "braka",
-  "velkon",
   "enza",
   "helzebur",
   "bitrhak",
