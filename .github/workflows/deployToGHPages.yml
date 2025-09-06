@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
+        run: VITE_SBASE_KEY=${{ vars.VITE_SBASE_KEY }} npm run build
 
       - name: Checking working direcetory
         run: ls
@@ -31,3 +31,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          vars:
