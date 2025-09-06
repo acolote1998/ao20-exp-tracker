@@ -94,9 +94,11 @@ const characterNames = [
   "yugi",
   "xdanielx",
   "popper",
+  "aule",
 ];
 
 export const externalCharacters = [
+  "aule",
   "popper",
   "enza",
   "kaeshi",
