@@ -125,7 +125,6 @@ export const externalCharacters = [
   "argeliot",
   "arnaldo",
   "snake",
-  "muffinjobs",
   "ohcut",
   "puchito",
   "celine",
