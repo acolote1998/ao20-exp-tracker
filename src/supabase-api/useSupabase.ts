@@ -5,7 +5,10 @@ import type {
   BadgeForCharacter,
 } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
-const sBaseK = process.env.VITE_SBASE_KEY || import.meta.env?.VITE_SBASE_KEY;
+const sBaseK = process.env.VITE_SBASE_KEY;
+if (!sBaseK) {
+  throw new Error("Missing Supabase key in environment variables");
+}
 const supabase = createClient(supabaseUrl, sBaseK);
 
 export const getBadgesForCharacter = async (
