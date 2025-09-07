@@ -5,7 +5,7 @@ import type {
   BadgeForCharacter,
 } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
-const sBaseK = import.meta.env.VITE_SBASE_KEY;
+const sBaseK = process.env.VITE_SBASE_KEY || import.meta.env?.VITE_SBASE_KEY;
 const supabase = createClient(supabaseUrl, sBaseK);
 
 export const getBadgesForCharacter = async (
