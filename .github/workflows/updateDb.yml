@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Build scripts
-        run: npm run build:scripts
+        run: VITE_SBASE_KEY=${{ vars.VITE_SBASE_KEY }} npm run build:scripts
 
       - name: Running Script
         run: node dist-scripts/logic/executeUpdateData.js
