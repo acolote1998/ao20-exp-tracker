@@ -14,7 +14,7 @@ const characterNames = [
   "bananazo",
   "braka",
   "karz",
-  "T E C O",
+  "t e c o",
   "Naoki",
   "popper",
   "aule",
