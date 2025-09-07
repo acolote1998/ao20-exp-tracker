@@ -5,9 +5,13 @@ import type {
   BadgeForCharacter,
 } from "../types/types";
 const supabaseUrl = "https://lfimiqkahvapcsqbeeud.supabase.co";
-const sBaseK = process.env.VITE_SBASE_KEY;
+let sBaseK = process.env.VITE_SBASE_KEY;
 if (!sBaseK) {
-  throw new Error("Missing Supabase key in environment variables");
+  // After Node could use the env var from the process we can use it from VITE
+  sBaseK = import.meta.env.VITE_SBASE_KEY;
+  if (!sBaseK) {
+    throw new Error("Missing Supabase key in environment variables");
+  }
 }
 const supabase = createClient(supabaseUrl, sBaseK);
 
