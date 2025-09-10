@@ -10,7 +10,6 @@ const characterNames = [
   "helzebur",
   "heartie",
   "asleif",
-  "feint",
   "bananazo",
   "braka",
   "karz",
