@@ -2,7 +2,6 @@ const characterNames = [
   "mio",
   "aburrido",
   "dex",
-  "fak",
   "bitrhak",
   "iorio",
   "loy",
