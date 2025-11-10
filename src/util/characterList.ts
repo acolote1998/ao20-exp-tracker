@@ -9,7 +9,7 @@ const characterNames = [
   "iorio",
   "loy",
   "stacy",
-  "heartie",
+  "daphne",
   "asleif",
   "braka",
   "karz",
