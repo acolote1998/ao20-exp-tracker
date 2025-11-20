@@ -1,4 +1,5 @@
 const characterNames = [
+  "muffinjobs",
   "tan tej",
   "mio",
   "seris",
