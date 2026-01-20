@@ -2,8 +2,8 @@ name: Fetch Data and update DB
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "50 2 * * *" # 2:50 AM UTC = 04:50 AM Sweden during summer = 23:50 Argentina
+  # schedule:
+  #   - cron: "50 2 * * *" # 2:50 AM UTC = 04:50 AM Sweden during summer = 23:50 Argentina
 
 jobs:
   update-db-with-script:
